@@ -95,25 +95,26 @@
 		  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 		</div> -->
 
-		<div class="row">
-			<!-- LEFT NAV -->
+	   	{% block content %}
+		{% endblock %}
+		<!-- <div class="row">
+			LEFT NAV
 		  <div class="col-sm-2">
 		  <br><br>
 			<nav class="nav flex-column nav-pills nav-justified" aria-orientation="vertical">
 			  <a class="nav-item nav-link active" data-toggle="pill" href="/">Home</a>
-			  <!-- <a class="nav-item nav-link" data-toggle="pill" href="/blog/">Blog</a> -->
+			  <a class="nav-item nav-link" data-toggle="pill" href="/blog/">Blog</a>
 			  <a class="nav-item nav-link" data-toggle="pill" href="/contact/">Contact</a>
-			  <!-- <a class="nav-link disabled" href="#">Disabled</a> -->
+			  <a class="nav-link disabled" href="#">Disabled</a>
 			</nav>
-		  </div> <!--col-sm-2-->
+		  </div> 
 		  <div class="col-sm-10">
 			<div class='container-fluid'>
 			<br><br>
-			   	{% block content %}
-				{% endblock %}
+			BLOCK CONTENT
 			</div>
 		  </div>
-		</div> 
+		</div>  -->
 	</div>
 	<footer>
 		<div class="container-fluid" style='margin-left:15px'>

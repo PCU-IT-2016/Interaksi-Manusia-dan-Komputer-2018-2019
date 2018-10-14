@@ -2,11 +2,29 @@
 
 {% block content %}
 
-    {% for c in content %}
-        <!-- {% if c == 'hi' %}
-        {{c}}
-        {% endif %} -->
-        <p>{{c}}</p>
-    {% endfor %}
-
+	<div class="row">
+		<!-- LEFT NAV -->
+	  <div class="col-sm-2">
+	  <br><br>
+		<nav class="nav flex-column nav-pills nav-justified" aria-orientation="vertical">
+		  <a class="nav-item nav-link" data-toggle="pill" href="/">Home</a>
+		  <!-- <a class="nav-item nav-link" data-toggle="pill" href="/blog/">Blog</a> -->
+		  <a class="nav-item nav-link active" data-toggle="pill" href="/contact/">Contact</a>
+		  <!-- <a class="nav-link disabled" href="#">Disabled</a> -->
+		</nav>
+	  </div> <!--col-sm-2-->
+	  <div class="col-sm-10">
+		<div class='container-fluid'>
+		<br><br>
+			<!-- BLOCK CONTENT -->
+			{% for c in content %}
+		        <!-- {% if c == 'hi' %}
+		        {{c}}
+		        {% endif %} -->
+		        <p>{{c}}</p>
+		    {% endfor %}
+		</div>
+	  </div>
+	</div> 
+    
 {% endblock %}

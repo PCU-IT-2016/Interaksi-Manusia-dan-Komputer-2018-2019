@@ -2,15 +2,34 @@
 
 {% block content %}
 
-	{% load staticfiles %}
-	{% for category in all_categories %}
-		<div class="card mb-3">
-		  <img href="#" class="card-img-top custom-hover" src="{% static '/MainApp/img/subway0.jpg' %}" alt="Card image cap" >
-		  <div class="card-body" href="#">
-		    <h5 class="card-title"><a href="/home/{{category.id}}">{{category.name}}</a></h5>
-		    <p class="card-text">{{category.descriptions}}</p>
-		    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-		  </div>
+	<div class="row">
+		<!-- LEFT NAV -->
+	  <div class="col-sm-2">
+	  <br><br>
+		<nav class="nav flex-column nav-pills nav-justified" aria-orientation="vertical">
+		  <a class="nav-item nav-link active" data-toggle="pill" href="/">Home</a>
+		  <!-- <a class="nav-item nav-link" data-toggle="pill" href="/blog/">Blog</a> -->
+		  <a class="nav-item nav-link" data-toggle="pill" href="/contact/">Contact</a>
+		  <!-- <a class="nav-link disabled" href="#">Disabled</a> -->
+		</nav>
+	  </div> <!--col-sm-2-->
+	  <div class="col-sm-10">
+		<div class='container-fluid'>
+		<br><br>
+			<!-- BLOCK CONTENT -->
+			{% load staticfiles %}
+			{% for category in all_categories %}
+				<div class="card mb-3">
+				  <img href="#" class="card-img-top custom-hover" src="{% static '/MainApp/img/subway0.jpg' %}" alt="Card image cap" >
+				  <div class="card-body" href="#">
+				    <h5 class="card-title"><a href="/home/{{category.id}}">{{category.name}}</a></h5>
+				    <p class="card-text">{{category.descriptions}}</p>
+				    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+				  </div>
+				</div>
+			{% endfor %}
 		</div>
-	{% endfor %}
+	  </div>
+	</div> 
+	
 {% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from MainApp.models import Category, Transportation
+from MainApp.models import Category, Transportation, Schedule
+
 def index(request):
     return render(request, "MainApp/header.html")
 
@@ -10,13 +11,14 @@ def home(request):
 
 # SHOULD RETURNS A SCHEDULE INSTEAD OF A LIST OF TRANSPORTATIONS
 def info(request, pk):
-    # RETURNS 1
-    category = Category.objects.all().get(pk=pk)
+    query = "SELECT * FROM MAINAPP_SCHEDULE S JOIN MAINAPP_TRANSPORTATION T ON S.TRANSPORTATION_ID_ID = T.id JOIN MAINAPP_CATEGORY C ON T.CATEGORY_ID_ID = C.id WHERE C.id = " + pk
+    all_schedule = Schedule.objects.raw(query)
+    schedule_dictionary = {'all_schedule' : all_schedule}
+    # category = Category.objects.all().get(pk=pk)
     # RETURNS 0 OR MORE
-    transportations = Transportation.objects.all().filter(category_id=category)
-    transportations_dictionary = {'all_transportations' : transportations}
-    print("AAAAAA")
-    return render(request, "MainApp/info.html", transportations_dictionary)
+    # transportations = Transportation.objects.all().filter(category_id=category)
+    # transportations_dictionary = {'all_transportations' : transportations}
+    return render(request, "MainApp/info.html", schedule_dictionary)
 
 def contact(request):
     content = {'content' : ['if you would like to contact me, please mail me at', 'mail@mail.com']}
