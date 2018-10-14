@@ -3,14 +3,15 @@
 {% block content %}
 
 	{% load staticfiles %}
-	{% for category in all_categories %}
-		<div class="card mb-3">
+    {% for transportation in all_transportations %}
+        <div class="card mb-3">
 		  <img href="#" class="card-img-top custom-hover" src="{% static '/MainApp/img/subway0.jpg' %}" alt="Card image cap" >
 		  <div class="card-body" href="#">
-		    <h5 class="card-title"><a href="/home/{{category.id}}">{{category.name}}</a></h5>
-		    <p class="card-text">{{category.descriptions}}</p>
+		    <h5 class="card-title"><a href="/home/{{category.id}}">{{transportation.name}}</a></h5>
+		    <p class="card-text">{{transportation.description}}</p>
 		    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 		  </div>
 		</div>
-	{% endfor %}
+    {% endfor %}
+
 {% endblock %}
