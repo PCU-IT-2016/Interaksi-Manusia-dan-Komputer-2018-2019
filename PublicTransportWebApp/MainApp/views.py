@@ -20,6 +20,7 @@ def schedule_list(request, pk):
     query               = "SELECT * FROM MAINAPP_SCHEDULE S JOIN MAINAPP_TRANSPORTATION T ON S.TRANSPORTATION_ID_ID = T.id JOIN MAINAPP_CATEGORY C ON T.CATEGORY_ID_ID = C.id WHERE C.id = " + pk
     all_schedule        = Schedule.objects.raw(query)
     schedule_dictionary = {'all_schedule' : all_schedule}
+    print(schedule_dictionary)
     # category = Category.objects.all().get(pk=pk)
     # RETURNS 0 OR MORE
     # transportations = Transportation.objects.all().filter(category_id=category)

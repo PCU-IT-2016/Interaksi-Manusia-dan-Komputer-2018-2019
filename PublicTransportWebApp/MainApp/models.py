@@ -41,7 +41,7 @@ class Schedule(models.Model):
     place_from_id           = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='place_from')
     place_destination_id    = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='place_destination')
     depart_status           = models.CharField(max_length=16)
-    cost                    = models.IntegerField()
+    cost                    = models.IntegerField(null=True)
     def __str__(self):
         return self.transportation_id.name + " " + str(self.date_time)
 

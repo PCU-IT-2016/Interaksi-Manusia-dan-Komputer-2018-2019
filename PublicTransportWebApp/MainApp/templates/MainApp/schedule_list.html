@@ -2,23 +2,88 @@
 
 {% block content %}
 
-	<div class="row">
-	  <div class="col-sm-10">
-		<div class='container-fluid'>
-			<!-- BLOCK CONTENT -->
-			{% load staticfiles %}
-		    {% for schedule in all_schedule %}
-		        <div class="card mb-3 bg-dark mx-auto" style='width: 24rem;'>
-				  <img href="#" class="card-img-top custom-hover" src="{% static '/MainApp/img/subway0.jpg' %}" alt="Card image cap" >
-				  <div class="card-body" href="schedule_detail.html">
-				    <h5 class="card-title"><a class="card-link" href="/schedule_detail/{{schedule.id}}" style="color: white;">{{schedule.transportation_id.name}}</a></h5>
-				    <p class="card-text">From {{schedule.place_from_id}} To {{schedule.place_destination_id}}, At {{schedule.date_time}}</p>
-				    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-				  </div>
-				</div>
-		    {% endfor %}
-		</div>
+{% load staticfiles %}
+{% for schedule in all_schedule %}
+<div class="container">
+	<div id="accordion">
+  	<div class="bg-dark card">
+  	<!-- ID HEADING HARUS BEDA -->
+    <div class="card-header" id={{schedule.id}}>
+      <!-- <h5 class="mb-0"> -->
+      	<!-- <i class="fa fa-cab" aria-hidden="true"></i> -->
+        <button class="btn btn-link" style="width: 100%;text-decoration: none; color: white;" data-toggle="collapse" data-target="#{{schedule.transportation_id.name}}{{schedule.id}}" aria-expanded="true" aria-controls={{schedule.id}}>
+        <div class="row mx-auto">
+	        <div class="col-sm-2">
+	        	{% if schedule.transportation_id.category_id.name == "Bus" %}
+	           		<h5 align="left" >Bus's Name</h5>
+	            {% elif schedule.transportation_id.category_id.name == "Kereta" %}
+	            	<h5 align="left" >Train's Name</h5>
+	            {% else %}
+	            	<h5 align="left" >AirPlane's Name</h5>
+	            {% endif %}
+	            <!--isi mobil -->
+	            <h6 align="left">{{schedule.transportation_id.name}}</h6>
+	        </div>
+	        <div class="col-sm-8 container">
+	           <h5 class="text-uppercase" align="left">Schedule</h5>
+	           <!--isi schedule -->
+	           <div align="left">From {{schedule.place_from_id}} To {{schedule.place_destination_id}}, At {{schedule.date_time}}</div>
+	        </div>
+	        <div class="col-sm-2">
+	           <h5 class="text-uppercase" align="left">Price</h5>
+	           <!--isi harga -->
+	           <h6 align="left">Rp {{schedule.cost}},-</h6>
+	        </div>
+      	</div>
+
+        </button>
+      <!-- </h5> -->
+    </div>
+    <!-- ID COLLAPSE BEDA -->
+    <div id={{schedule.transportation_id.name}}{{schedule.id}} class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+      	<ul class="nav nav-tabs">
+	    <li class="nav-item">
+	      <a class="nav-link active" data-toggle="tab" href="#home">Details</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" data-toggle="tab" href="#menu1">Fare</a>
+	    </li>
+	  </ul>
+
+	  <!-- Tab panes -->
+	  <div class="tab-content">
+	    <div id="home" class="container tab-pane active"><br>
+	       <div class="row">
+	         <div class="col-md-4 mt-md-0 mt-3">
+	          <!-- isi -->
+	        </div>
+	        <div class="col-md-4 mt-md-0 mt-3">
+	          <!-- isi -->
+	        </div>
+	           <div class="col-md-4 mt-md-0 mt-3">
+	          <!-- isi -->
+	        </div>
+	      </div>
+	    </div>
+	    <div id="menu1" class="container tab-pane fade"><br>
+	       <div class="row">
+	         <div class="col-md-4 mt-md-0 mt-3">
+	          <!-- isi -->
+	        </div>
+	        <div class="col-md-4 mt-md-0 mt-3">
+	          <!-- isi -->
+	        </div>
+	           <div class="col-md-4 mt-md-0 mt-3">
+	   		  <!-- isi -->
+	        </div>
+	      </div>
+	    </div>
 	  </div>
-	</div> 
+ 	 </div>
+    </div>
+</div></div></div>
+{% endfor %}
+   <!-- END COLLAPSE -->
 
 {% endblock %}
