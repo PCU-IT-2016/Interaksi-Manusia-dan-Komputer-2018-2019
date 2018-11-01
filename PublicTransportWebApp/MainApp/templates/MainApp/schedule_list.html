@@ -13,7 +13,7 @@
       	<!-- <i class="fa fa-cab" aria-hidden="true"></i> -->
         <button class="btn btn-link" style="width: 100%;text-decoration: none; color: white;" data-toggle="collapse" data-target="#{{schedule.transportation_id.name}}{{schedule.id}}" aria-expanded="true" aria-controls={{schedule.id}}>
         <div class="row mx-auto">
-	        <div class="col-sm-2">
+	        <div class="col-md-8">
 	        	{% if schedule.transportation_id.category_id.name == "Bus" %}
 	           		<h5 align="left" >Bus's Name</h5>
 	            {% elif schedule.transportation_id.category_id.name == "Kereta" %}
@@ -24,16 +24,34 @@
 	            <!--isi mobil -->
 	            <h6 align="left">{{schedule.transportation_id.name}}</h6>
 	        </div>
-	        <div class="col-sm-8 container">
-	           <h5 class="text-uppercase" align="left">Schedule</h5>
-	           <!--isi schedule -->
-	           <div align="left">From {{schedule.place_from_id}} To {{schedule.place_destination_id}}, At {{schedule.date_time}}</div>
-	        </div>
-	        <div class="col-sm-2">
+	        <div class="col-md-4">
 	           <h5 class="text-uppercase" align="left">Price</h5>
 	           <!--isi harga -->
 	           <h6 align="left">Rp {{schedule.cost}},-</h6>
 	        </div>
+	        <div class="col-md-12">
+	           <h5 align="left">From</h5>
+	           <!--isi schedule -->
+	           <div align="left">{{schedule.place_from_id}} </div>
+	           <!-- {{schedule.place_destination_id}}, At {{schedule.date_time}} -->
+	        </div>
+	        <div class="col-md-12">
+
+				<h5 align="left">To</h5>
+	           <!--isi schedule -->
+	           <div align="left">{{schedule.place_destination_id}} </div>
+	           <!-- {{schedule.place_destination_id}}, At {{schedule.date_time}} -->
+
+	        </div>
+
+	        <div class="col-md-12">
+	            <h5 align="left">At</h5>
+	           <!--isi schedule -->
+	           <div align="left">{{schedule.date_time}} </div>
+	           <!-- {{schedule.place_destination_id}}, At {{schedule.date_time}} -->
+	        </div>
+
+	        
       	</div>
 
         </button>

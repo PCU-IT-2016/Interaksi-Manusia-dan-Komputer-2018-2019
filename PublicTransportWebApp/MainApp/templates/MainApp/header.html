@@ -65,7 +65,7 @@
 	</style>
 </head>
 
-<body>
+<body id="body">
 
 	<div class="header">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -84,7 +84,7 @@
 				        </li>
 
 				        <li class="nav-item">
-				        	<a class="nav-link" href="#">Services</a>
+				        	<a class="nav-link" href="#" id="bg-button">Theme</a>
 				        </li>
 
 				        <li class="nav-item dropdown">
@@ -120,7 +120,7 @@
 	      <div class="container">
 	        <div class="row">
 	          <div class="col-rg-4 mx-auto text-center">
-	            <h2 class="section-heading text-white">How To Use</h2>
+	            <h2 class="section-heading text-white mt-3">How To Use</h2>
 	            	<hr class="light my-8">
 	            	<!-- CAROUSEL HERE -->
 	            	<!-- {% load staticfiles %}
@@ -158,7 +158,7 @@
 	      </div>
 	    </section>
 
-	    <div>
+	    <div class="mb-3">
 	    	{% block content %}
 	    	{% endblock %}
 		</div>
@@ -168,6 +168,129 @@
 
 	<!-- FOOTER -->
 	<div id="footer" class="bg-dark page-footer font-small blue pt-4">
+
+		<div class="box bg-dark">
+		    <div class="container">
+		     	<div class="row">
+					 
+				    <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+	               
+						<div class="box-part text-center bg-dark">
+	                        
+	                        <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+	                        
+							<div class="title">
+								<h4>Instagram</h4>
+							</div>
+	                        
+							<div class="text">
+								<span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+							</div>
+	                        
+							<a href="#">Learn More</a>
+	                        
+						 </div>
+					</div> -->	 
+					
+					 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+	               
+						<div class="box-part text-center bg-dark">
+						    
+						    <i class="fa fa-twitter fa-3x" aria-hidden="true"></i>
+	                    
+							<div class="title">
+								<h4>Twitter</h4>
+							</div>
+	                        
+							<div class="text">
+								<span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+							</div>
+	                        
+							<a href="#">Learn More</a>
+	                        
+						 </div>
+					</div>	 
+					
+					 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+	               
+						<div class="box-part text-center bg-dark">
+	                        
+	                        <i class="fa fa-facebook fa-3x" aria-hidden="true"></i>
+	                        
+							<div class="title">
+								<h4>Facebook</h4>
+							</div>
+	                        
+							<div class="text">
+								<span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+							</div>
+	                        
+							<a href="#">Learn More</a>
+	                        
+						 </div>
+					</div>	 
+					
+					<!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+	               
+						<div class="box-part text-center bg-dark">
+	                        
+	                        <i class="fa fa-pinterest-p fa-3x" aria-hidden="true"></i>
+	                        
+							<div class="title">
+								<h4>Pinterest</h4>
+							</div>
+	                        
+							<div class="text">
+								<span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+							</div>
+	                        
+							<a href="#">Learn More</a>
+	                        
+						 </div>
+					</div>	  -->
+					
+					 <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+	               
+						<div class="box-part text-center bg-dark">
+						    
+						    <i class="fa fa-google-plus fa-3x" aria-hidden="true"></i>
+	                    
+							<div class="title">
+								<h4>Google</h4>
+							</div>
+	                        
+							<div class="text">
+								<span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+							</div>
+	                        
+							<a href="#">Learn More</a>
+	                        
+						 </div>
+					</div>	  -->
+					
+					 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+	               
+						<div class="box-part text-center bg-dark">
+	                        
+	                        <i class="fa fa-github fa-3x" aria-hidden="true"></i>
+	                        
+							<div class="title">
+								<h4>Github</h4>
+							</div>
+	                        
+							<div class="text">
+								<span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+							</div>
+	                        
+							<a href="#">Learn More</a>
+	                        
+						 </div>
+					</div>
+				
+				</div>		
+		    </div>
+		</div>
+
 		<div class="container-fluid text-center text-md-left">
 		    <div class="container">
 		        <div class="row">
@@ -176,7 +299,7 @@
 		            <p>Menjawab Kebutuhan Transportasi Anda: Angkot, Kereta, Pesawat. Banyak Pilihan Pembayaran. Aman & Terpercaya. Dilindungi Asuransi. Tarif Tetap. Pengemudi Terlatih.</p>
 		        </div>
 
-		        <div class="col-md-6">
+		        <div class="col-md-6" align="right">
 		            <h5 class="text-uppercase">Contacs</h5>
 		            <ul class="list-unstyled">
 		              <li>
@@ -199,3 +322,19 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#bg-button").click(function(){
+			// alert("Handler for .click() called");
+			var p = $("body").css("background-color");
+			// alert(p)
+			if (p == "rgb(42, 43, 45)"){
+				var p = $("body").css("background-color", "blue");
+			} else {
+				var p = $("body").css("background-color", "#2a2b2d");
+			}
+			p.hide(1500).show(1500);
+		});
+	});
+</script>
