@@ -15,7 +15,7 @@
 	{% for category in all_categories %}
 	<div class="col-sm-12" align="center">
 		<div class="custom-card" style="width: 32rem;" align="left">
-			<a href="/schedule_list/{{category.id}}" class="card card-link bg-dark mb-3 ">
+			<a href="/schedule_list/{{category.id}}" class="card card-link bg-light mb-3 ">
 			    <!-- <img class="card-img-top" src="{% static '{{category.image}}' %}" alt="Card image cap"> -->
 			    {% if category.name == "Bus" %}
 			    <img class="card-img-top" src="{% static 'MainApp/img/bus0.jpg' %}" alt="Card image cap">
@@ -24,7 +24,7 @@
 			    {% elif category.name == "Kereta" %}
 			    <img class="card-img-top" src="{% static 'MainApp/img/kereta_ilustrasi.jpg' %}" alt="Card image cap">
 			    {% endif %}
-			    <div class="card-body" style=" color: white;">
+			    <div class="card-body" style=" color: black;">
 			  	<!-- <div class="container-fluid" href="/schedule_list/{{category.id}}"> -->
 				    <h5 class="card-title">{{category.name}}</h5>
 				    <!-- <a class="card-link" style="color: white;" href="/schedule_list/{{category.id}}">{{category.name}}</a> -->
