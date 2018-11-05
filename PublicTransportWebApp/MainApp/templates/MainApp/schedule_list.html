@@ -1,106 +1,167 @@
 {% extends "MainApp/header.html" %}
 
 {% block content %}
+	
+	<style type="text/css">
+		.logo-icon{
+			width: 100%;
+		}
+	</style>
 
-{% load staticfiles %}
-{% for schedule in all_schedule %}
-<div class="container">
+	{% with all_schedule.0.transportation_id.category_id.name as category %}
+
+		{% if category == "Bus" %}
+		<div style="background-color: #599ff9;">
+			<ul class="nav nav-pills nav-fill">
+			  <li class="nav-item">
+			    <a class="nav-link active" href="/schedule_list/1"style="color: white;">Bus</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="/schedule_list/2"style="color: white;">Kereta Api</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="/schedule_list/3"style="color: white;">Pesawat</a>
+			  </li>
+			</ul>
+		</div>
+		{% elif category == "Kereta" %}
+		<div style="background-color: #599ff9;">
+			<ul class="nav nav-pills nav-fill">
+			  <li class="nav-item">
+			    <a class="nav-link" href="/schedule_list/1"style="color: white;">Bus</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link active" href="/schedule_list/2"style="color: white;">Kereta Api</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="/schedule_list/3"style="color: white;">Pesawat</a>
+			  </li>
+			</ul>
+		</div>
+		{% elif category == "Pesawat" %}
+		<div style="background-color: #599ff9;">
+			<ul class="nav nav-pills nav-fill">
+			  <li class="nav-item">
+			    <a class="nav-link" href="/schedule_list/1" style="color: white;">Bus</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="/schedule_list/2" style="color: white;">Kereta Api</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link active" href="/schedule_list/3" style="color: white;">Pesawat</a>
+			  </li>
+			</ul>
+		</div>
+		{% endif %}
+	{% endwith %}
+
+	<div class="card card-header" style="width: 100%">
+		<div class="container">
+			<form class="mt-3 mb-3" action="#" method="GET">
+				<div class="form-row">
+					<div class="form-group col-sm-12">
+				    	<h5>Waktu</h5>
+				    	<input id="datepicker" width="276" />
+					    <script>
+					        $('#datepicker').datepicker({
+					            uiLibrary: 'bootstrap4'
+					        });
+					    </script>
+				    </div>
+					<div class="form-group col-sm-6">
+				      <h5 for="inputFrom">Dari</h5>
+				      <select id="inputFrom" class="form-control">
+				      	{% for city in all_cities %}
+				        	<option selected>{{city.name}}</option>
+				        {% endfor %}
+				      </select>
+				    </div>
+				    <div class="form-group col-sm-6">
+				      <h5 for="inputTo">Ke</h5>
+				      <select id="inputTo" class="form-control">
+				        {% for city in all_cities %}
+				        	<option selected>{{city.name}}</option>
+				        {% endfor %}
+				      </select>
+				    </div>
+			    </div>
+			    <button type="submit" class="btn btn-primary">Cari</button>
+			</form>
+		</div>
+	</div>
+
+	{% load staticfiles %}
+	{% for schedule in all_schedule %}
 	<div id="accordion">
-  	<div class="bg-dark card">
-  	<!-- ID HEADING HARUS BEDA -->
-    <div class="card-header" id={{schedule.id}}>
-      <!-- <h5 class="mb-0"> -->
-      	<!-- <i class="fa fa-cab" aria-hidden="true"></i> -->
-        <button class="btn btn-link" style="width: 100%;text-decoration: none; color: white;" data-toggle="collapse" data-target="#{{schedule.transportation_id.name}}{{schedule.id}}" aria-expanded="true" aria-controls={{schedule.id}}>
-        <div class="row mx-auto">
-	        <div class="col-md-8">
-	        	{% if schedule.transportation_id.category_id.name == "Bus" %}
-	           		<h5 align="left" >Bus's Name</h5>
-	            {% elif schedule.transportation_id.category_id.name == "Kereta" %}
-	            	<h5 align="left" >Train's Name</h5>
-	            {% else %}
-	            	<h5 align="left" >AirPlane's Name</h5>
-	            {% endif %}
-	            <!--isi mobil -->
-	            <h6 align="left">{{schedule.transportation_id.name}}</h6>
-	        </div>
-	        <div class="col-md-4">
-	           <h5 class="text-uppercase" align="left">Price</h5>
-	           <!--isi harga -->
-	           <h6 align="left">Rp {{schedule.cost}},-</h6>
-	        </div>
-	        <div class="col-md-12">
-	           <h5 align="left">From</h5>
-	           <!--isi schedule -->
-	           <div align="left">{{schedule.place_from_id}} </div>
-	           <!-- {{schedule.place_destination_id}}, At {{schedule.date_time}} -->
-	        </div>
-	        <div class="col-md-12">
+	  	<div class="card">
+	  	<!-- ID HEADING HARUS BEDA -->
+	    <div class="card" id={{schedule.id}}>
+	      <!-- <h5 class="mb-0"> -->
+	      	<!-- <i class="fa fa-cab" aria-hidden="true"></i> -->
+	        <button class="btn btn-link" style="width: 100%;text-decoration: none; color: black;" data-toggle="collapse" data-target="#{{schedule.transportation_id.category_id.name}}{{schedule.id}}" aria-expanded="true" aria-controls={{schedule.id}}>
+	        <div class="row mx-auto">
+	        	<div class="col-md-1">
+	        		<img class="logo-icon" src="{{schedule.transportation_id.image}}">
+	        	</div>
+		        <div class="col-md-4">
+		            <div align="left" style="font-size: 18px">{{schedule.transportation_id.name}}</div>
+		            <h6 align="left" style="font-size: 20px">{{schedule.place_from_id.city.code_name}} <i class='fas fa-arrow-right' style='font-size:18px'></i>  {{schedule.place_destination_id.city.code_name}}</h6>
+		        </div>
+		        <div class="col-md-4">
+		           <div align="left" style="font-weight: bold;">{{schedule.date_time}} </div>
+		        </div>
+		        <div class="col-md-2" align="right">
+		           <h6 style="color: orange; font-size: 20px;">IDR {{schedule.cost}}</h6>
+		        </div>
+	      	</div>
 
-				<h5 align="left">To</h5>
-	           <!--isi schedule -->
-	           <div align="left">{{schedule.place_destination_id}} </div>
-	           <!-- {{schedule.place_destination_id}}, At {{schedule.date_time}} -->
-
-	        </div>
-
-	        <div class="col-md-12">
-	            <h5 align="left">At</h5>
-	           <!--isi schedule -->
-	           <div align="left">{{schedule.date_time}} </div>
-	           <!-- {{schedule.place_destination_id}}, At {{schedule.date_time}} -->
-	        </div>
-
-	        
-      	</div>
-
-        </button>
-      <!-- </h5> -->
-    </div>
-    <!-- ID COLLAPSE BEDA -->
-    <div id={{schedule.transportation_id.name}}{{schedule.id}} class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
-      	<ul class="nav nav-tabs">
-	    <li class="nav-item">
-	      <a class="nav-link active" data-toggle="tab" href="#home">Details</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" data-toggle="tab" href="#menu1">Fare</a>
-	    </li>
-	  </ul>
-
-	  <!-- Tab panes -->
-	  <div class="tab-content">
-	    <div id="home" class="container tab-pane active"><br>
-	       <div class="row">
-	         <div class="col-md-4 mt-md-0 mt-3">
-	          <!-- isi -->
-	        </div>
-	        <div class="col-md-4 mt-md-0 mt-3">
-	          <!-- isi -->
-	        </div>
-	           <div class="col-md-4 mt-md-0 mt-3">
-	          <!-- isi -->
-	        </div>
-	      </div>
+	        </button>
 	    </div>
-	    <div id="menu1" class="container tab-pane fade"><br>
-	       <div class="row">
-	         <div class="col-md-4 mt-md-0 mt-3">
-	          <!-- isi -->
-	        </div>
-	        <div class="col-md-4 mt-md-0 mt-3">
-	          <!-- isi -->
-	        </div>
-	           <div class="col-md-4 mt-md-0 mt-3">
-	   		  <!-- isi -->
-	        </div>
-	      </div>
+	    <!-- ID COLLAPSE BEDA -->
+	    <div id={{schedule.transportation_id.category_id.name}}{{schedule.id}} class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+	      <div class="card-body">
+	      	<ul class="nav nav-tabs">
+		    <li class="nav-item">
+		      <a class="nav-link active" data-toggle="tab" href="#home">Details</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" data-toggle="tab" href="#menu1">Fare</a>
+		    </li>
+		  </ul>
+
+		  <!-- Tab panes -->
+		  <div class="tab-content">
+		    <div id="home" class="container tab-pane active"><br>
+		       <div class="row">
+		         <div class="col-md-4 mt-md-0 mt-3">
+		          <!-- isi -->
+		        </div>
+		        <div class="col-md-4 mt-md-0 mt-3">
+		          <!-- isi -->
+		        </div>
+		           <div class="col-md-4 mt-md-0 mt-3">
+		          <!-- isi -->
+		        </div>
+		      </div>
+		    </div>
+		    <div id="menu1" class="container tab-pane fade"><br>
+		       <div class="row">
+		         <div class="col-md-4 mt-md-0 mt-3">
+		          <!-- isi -->
+		        </div>
+		        <div class="col-md-4 mt-md-0 mt-3">
+		          <!-- isi -->
+		        </div>
+		           <div class="col-md-4 mt-md-0 mt-3">
+		   		  <!-- isi -->
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+	 	 </div>
 	    </div>
-	  </div>
- 	 </div>
-    </div>
-</div></div></div>
+	</div>
+	</div>
 {% endfor %}
    <!-- END COLLAPSE -->
 

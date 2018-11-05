@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from MainApp.models import Category, Transportation, Schedule, Account
+from MainApp.models import Category, Transportation, Schedule, Account, City
 from MainApp.forms import LoginForm
 
 def index(request):
@@ -7,7 +7,11 @@ def index(request):
 
 def home(request):
     all_categories          = Category.objects.all()
-    categories_dictionary   = {'all_categories' : all_categories}
+    all_cities              = City.objects.all()
+    categories_dictionary   = {
+        'all_categories' : all_categories,
+        'all_cities'     : all_cities
+    }
     return render(request, "MainApp/home.html",categories_dictionary)
 
 def map(request):
@@ -17,9 +21,20 @@ def new_home(request):
     return render(request, "MainApp/new_home.html")
 
 def schedule_list(request, pk):
-    query               = "SELECT * FROM MAINAPP_SCHEDULE S JOIN MAINAPP_TRANSPORTATION T ON S.TRANSPORTATION_ID_ID = T.id JOIN MAINAPP_CATEGORY C ON T.CATEGORY_ID_ID = C.id WHERE C.id = " + pk
+    category_id         = pk
+    query               = """
+    SELECT * FROM MAINAPP_SCHEDULE S 
+    JOIN MAINAPP_TRANSPORTATION T ON S.TRANSPORTATION_ID_ID = T.id 
+    JOIN MAINAPP_CATEGORY C ON T.CATEGORY_ID_ID = C.id 
+    WHERE C.id = {} 
+    """.format(pk)
     all_schedule        = Schedule.objects.raw(query)
-    schedule_dictionary = {'all_schedule' : all_schedule}
+    all_cities          = City.objects.all()
+    schedule_dictionary = {
+        'category_id'  : category_id,
+        'all_schedule' : all_schedule,
+        'all_cities'   : all_cities
+    }
     print(schedule_dictionary)
     # category = Category.objects.all().get(pk=pk)
     # RETURNS 0 OR MORE

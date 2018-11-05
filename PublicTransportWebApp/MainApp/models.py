@@ -9,7 +9,7 @@ class Category(models.Model):
 
 class Transportation(models.Model):
     name                    = models.CharField(max_length=64)
-    image                   = models.CharField(max_length=64, null=True)
+    image                   = models.TextField(null=True)
     category_id             = models.ForeignKey(Category, on_delete=models.CASCADE)
     status                  = models.CharField(max_length=16)
     description             = models.TextField()
@@ -18,6 +18,7 @@ class Transportation(models.Model):
 
 class City(models.Model):
     name                    = models.CharField(max_length=32)
+    code_name               = models.CharField(max_length=8, default="DEF")
     def __str__(self):
         return self.name
 
