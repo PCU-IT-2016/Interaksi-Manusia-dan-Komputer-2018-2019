@@ -130,6 +130,67 @@
 	    	{% endblock %}
 		</div>
 
+		<div class="container" style="padding-bottom: 10%; padding-top: 10%;">
+		<h1>Fill Your Details</h1>
+		<form action="" method="" style="display:inline;">
+		 	<div class="form-row">
+			    <div class="col-md-4 mb-3">
+			      <label>First name</label>
+			      <input type="text" class="form-control" id="firstname1" placeholder="First name" value="" required>
+			    </div>
+			    <div class="col-md-4 mb-3">
+			      <label>Last name</label>
+			      <input type="text" class="form-control" id="lastname1" placeholder="Last name" value="" required>
+			    </div>
+			  </div>
+
+			  <div class="form-row">
+			  	<div class="col-md-4 mb-3">
+			      <label>Gender</label>
+			      <div class="input-group">
+			        <div class="custom-control custom-radio">
+					  <input type="radio" id="gender1" name="gender" class="custom-control-input">
+					  <label class="custom-control-label" for="gender1">Male</label>&nbsp&nbsp
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="gender2" name="gender" class="custom-control-input">
+					  <label class="custom-control-label" for="gender2">Female</label>
+					</div>
+			      </div>
+			    </div>
+			  </div>
+			
+			  <div class="form-row">
+			    <div class="col-md-6 mb-3">
+			      <label>Email</label>
+			      <input type="text" class="form-control" id="enmail1" placeholder="Email" required>
+			    </div>
+			  </div>
+
+			   <div class="form-row">
+			    <div class="col-md-6 mb-3">
+			      <label>Handphone</label>
+			      <input type="number"  data-bind="value:replyNumber" min=0 class="form-control" id="validationTooltip03" placeholder="Handphone number" required>
+			    </div>
+			  </div> 
+
+			  <div class="form-group">
+			    <div class="form-check">
+			      <input class="form-check-input" type="checkbox" value="" id="terms" required>
+			      <label class="form-check-label">
+			        Agree to terms and conditions
+			      </label>
+			    </div>
+			  </div>
+
+			  <button class="btn btn-primary"  type="submit">Submit</button>
+
+			</form>
+			<form action="header.html" action="post" class="form-group" style="padding-left:5%; position: absolute;display:inline;">
+			    <button class="btn btn-warning" style="color: white;">Cancel</button>
+			</form>
+		</div>
+
 	</div>
 
 	<!-- FOOTER -->
