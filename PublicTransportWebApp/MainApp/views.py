@@ -27,6 +27,7 @@ def schedule_list(request, pk):
     JOIN MAINAPP_TRANSPORTATION T ON S.TRANSPORTATION_ID_ID = T.id 
     JOIN MAINAPP_CATEGORY C ON T.CATEGORY_ID_ID = C.id 
     WHERE C.id = {} 
+    ORDER BY S.date_time
     """.format(pk)
     all_schedule        = Schedule.objects.raw(query)
     all_cities          = City.objects.all()
@@ -60,6 +61,47 @@ def login(request):
         else:
             return home(request)
         
+def register_form(request):
+    if request.method == "GET":
+        return render(request, "MainApp/register.html")
+    else:
+        if (request.POST.get("cancelButton")):
+            return home(request)
+        else: 
+            response = True
+            # to do list: make migrations -> first name + last name + phone number
+            first_name = request.POST.get("firstname")
+            last_name  = request.POST.get("lastname")
+            password   = request.POST.get("password")
+            email      = request.POST.get("email")
+
+            username         = first_name + last_name
+            account          = Account()
+            account.username = username
+            account.password = password
+            account.email    = email
+            account.save()
+
+            all_categories   = Category.objects.all()
+            all_cities       = City.objects.all()
+
+            response_values = {
+                'account'        : account ,
+                'response'       : response,
+                'all_categories' : all_categories,
+                'all_cities'     : all_cities,
+            }
+            return render(request, "MainApp/home.html", response_values)
+
+# def formatrupiah(uang):
+#     y = str(uang)
+#     if len(y) <= 3 :
+#         return 'Rp ' + y     
+#     else :
+#         p = y[-3:]
+#         q = y[:-3]
+#         return formatrupiah(q) + '.' + p
+
 def contact(request):
     content = {'content' : ['if you would like to contact me, please mail me at', 'm26416083@john.petra.ac.id']}
     return render(request, "MainApp/basic.html", content)
