@@ -11,7 +11,32 @@
 			height: 1080px;
 		}
 
+		.vl {
+		    border-left: 3px solid blue;
+		    height: 9px;
+		    margin-left: 4px;
+		}
+
+		.place-circle {
+		    background-color:#fff;
+		    border:1px solid blue;    
+		    height:10px;
+		    border-radius:50%;
+		    -moz-border-radius:50%;
+		    -webkit-border-radius:50%;
+		    width:10px;
+		    margin-left: 1px;
+		}
+
 	</style>
+
+
+	<script type="text/javascript">
+		$('#accordion').on('show.bs.collapse', function () {
+		   $('#accordion .in').collapse('hide');
+		});
+		$(".collapse.in").removeClass('collapse in');
+	</script>
 
 	{% with all_schedule.0.transportation_id.category_id.name as category %}
 
@@ -123,7 +148,6 @@
 			        </button>
 			      </h5>
 			    </div>
-
 			    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
 			      <div class="card-body">
 			        TEST COLLAPSE
@@ -138,7 +162,6 @@
 			        </button>
 			      </h5>
 			    </div>
-
 			    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
 			      <div class="card-body">
 			        TEST COLLAPSE
@@ -149,13 +172,11 @@
 
 		<div class="col-sm-9">
 		{% load staticfiles %}
-		{% for schedule in all_schedule %}
 		<div id="accordion">
+		{% for schedule in all_schedule %}
 		  	<div class="card">
 			  	<!-- ID HEADING HARUS BEDA -->
 			    <div class="card" id={{schedule.id}}>
-			      <!-- <h5 class="mb-0"> -->
-			      	<!-- <i class="fa fa-cab" aria-hidden="true"></i> -->
 			        <button class="btn btn-link" style="width: 100%;text-decoration: none; color: black;" data-toggle="collapse" data-target="#{{schedule.transportation_id.category_id.name}}{{schedule.id}}" aria-expanded="true" aria-controls={{schedule.id}}>
 			        <div class="row mx-auto">
 			        	<div class="col-md-1">
@@ -167,9 +188,10 @@
 				        </div>
 				        <div class="col-md-4">
 				           <div align="left" style="font-weight: bold;">{{schedule.date_time}} </div>
+				           <div align="left">Langsung</div>
 				        </div>
-				        <div class="col-md-2" align="right">
-				           <h6 style="color: orange; font-size: 20px;">IDR {{schedule.cost}}</h6>
+				        <div class="col-md-3" align="right">
+				           <h6 style="color: orange; font-size: 20px;">{{schedule.cost_currency_format}}</h6>
 				        </div>
 			      	</div>
 
@@ -180,48 +202,108 @@
 			      <div class="card-body">
 			      	<ul class="nav nav-tabs">
 				    <li class="nav-item">
-				      <a class="nav-link active" data-toggle="tab" href="#home">Details</a>
+				      <a class="nav-link active" data-toggle="tab" href="#detail_keberangkatan{{schedule.id}}">Detail Keberangkatan</a>
 				    </li>
 				    <li class="nav-item">
-				      <a class="nav-link" data-toggle="tab" href="#menu1">Fare</a>
+				      <a class="nav-link" data-toggle="tab" href="#detail_harga{{schedule.id}}">Detail Harga</a>
 				    </li>
 				  </ul>
 
 				  <!-- Tab panes -->
 				  <div class="tab-content">
-				    <div id="home" class="container tab-pane active"><br>
+				    <div id="detail_keberangkatan{{schedule.id}}" class="container tab-pane active"><br>
+				       <div class="row">
+				       	<div class="col-sm-1">
+				       		<!-- LOGO -->
+				       		<img class="logo-icon" src="{{schedule.transportation_id.image}}">
+				       	</div>
+				       	<div class="col-sm-11">
+				       		<div class="row">
+						        <div class="col-sm-1">
+							        <!-- isi -->
+							        <ul style="list-style: none;">
+							          	<li>
+							          		<div class="place-circle mb-1 mt-2"></div>
+							          	</li>
+							          	<li>
+							          		<div class="vl mb-1"></div>
+							          	</li>
+							          	<li>
+							          		<div class="vl mb-1"></div>
+							          	</li>
+							          	<li>
+							          		<div class="vl mb-1"></div>
+							          	</li>
+							          	<li>
+							          		<div class="vl mb-1"></div>
+							          	</li>
+							          	<li>
+							          		<div class="vl mb-1"></div>
+							          	</li>
+							          	<li>
+							          		<div class="vl mb-1"></div>
+							          	</li>
+							          	<li>
+							          		<div class="vl mb-1"></div>
+							          	</li>
+							          	<li>
+							          		<div class="place-circle"></div>
+							          	</li>
+							        </ul>
+						        </div>
+						        <div class="col-sm-4 mt-md-0 mt-3">
+					          		<div style="font-size: 14px">
+					          			({{schedule.place_from_id.city.code_name}}) {{schedule.place_from_id.nickname}}
+					          		</div>
+					          		<div style="font-size: 14px; margin-top: 32px; margin-bottom: 32px;">
+					          			50mnt
+					          		</div>
+					          		<div style="font-size: 14px;">
+					          			({{schedule.place_destination_id.city.code_name}}) {{schedule.place_destination_id.nickname}}
+					          		</div>
+						        </div>
+						        <div class="col-sm-4">
+						        	<div style="color:#808080;"> Detail Barang </div>
+								    <div>🕘 <strong>22.15 - 01.16</strong></div>
+								    <div>🛄 <strong>20 Kg</strong></div>
+						        </div>
+						        <div class="col-sm-3 mt-md-0 mt-3">
+						          	<div style="color:#808080;"> Detail Barang </div>
+								    <div>🕘 <strong>22.15 - 01.16</strong></div>
+								    <div>🛄 <strong>20 Kg</strong></div>
+						        </div>
+					    	</div>
+				      </div>
+				    </div>
+				    <div class="row">
+				    <div id="detail_harga{{schedule.id}}" class="container tab-pane fade"><br>
 				       <div class="row">
 				         <div class="col-md-4 mt-md-0 mt-3">
 				          <!-- isi -->
+				          <div style="color:#808080;">Dewasa x 1</div>
+				          <div style="color:#808080;">Biaya Layanan</div>
+				          <div style="color:#808080;">Pajak</div>
+				          <h5>Total Pembayaran</h5>
 				        </div>
 				        <div class="col-md-4 mt-md-0 mt-3">
-				          <!-- isi -->
+				          
 				        </div>
-				           <div class="col-md-4 mt-md-0 mt-3">
-				          <!-- isi -->
+				        <div class="col-md-4 mt-md-0 mt-3" align="right">
+				   		 	<div>{{schedule.cost_currency_format}}</div>
+				   		 	<div style="color: lightblue">GRATIS</div>
+				   		 	<div style="color: lightblue">Termasuk</div>
+				   		 	<h5 style="color: orange">{{schedule.cost_currency_format}}</h5>
 				        </div>
 				      </div>
 				    </div>
-				    <div id="menu1" class="container tab-pane fade"><br>
-				       <div class="row">
-				         <div class="col-md-4 mt-md-0 mt-3">
-				          <!-- isi -->
-				        </div>
-				        <div class="col-md-4 mt-md-0 mt-3">
-				          <!-- isi -->
-				        </div>
-				           <div class="col-md-4 mt-md-0 mt-3">
-				   		  <!-- isi -->
-				        </div>
-				      </div>
-				    </div>
+					</div>
 				  </div>
 			 	 </div>
 			    </div>
-			</div>
+				</div>
 		</div>
 {% endfor %}
-	</div>
+		</div>
 </div>
    <!-- END COLLAPSE -->
 
