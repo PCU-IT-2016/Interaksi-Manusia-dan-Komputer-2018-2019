@@ -93,15 +93,6 @@ def register_form(request):
             }
             return render(request, "MainApp/home.html", response_values)
 
-# def formatrupiah(uang):
-#     y = str(uang)
-#     if len(y) <= 3 :
-#         return 'Rp ' + y     
-#     else :
-#         p = y[-3:]
-#         q = y[:-3]
-#         return formatrupiah(q) + '.' + p
-
 def contact(request):
     content = {'content' : ['if you would like to contact me, please mail me at', 'm26416083@john.petra.ac.id']}
     return render(request, "MainApp/basic.html", content)

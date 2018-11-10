@@ -25,7 +25,7 @@
 
 		{% load staticfiles %}
 		{% for category in all_categories %}
-		<div class="col-lg-4 d-flex align-items-stretch" align="center">
+		<div class="col-4 d-flex align-items-stretch" align="center">
 			<div class="custom-card d-flex align-items-stretch" style="width: 32rem;" align="left">
 				<a href="/schedule_list/{{category.id}}" class="card card-link bg-light mb-3 ">
 				    <!-- <img class="card-img-top" src="{% static '{{category.image}}' %}" alt="Card image cap"> -->
@@ -50,7 +50,7 @@
 		<div class="container">
 			<form class="mt-3 mb-3" action="#" method="GET">
 				<div class="form-row">
-					<div class="form-group col-sm-4">
+					<div class="form-group col-4">
 				      <h5 for="inputCategory">Category</h5>
 				      <select id="inputCategory" class="form-control">
 				      	{% for category in all_categories %}
@@ -58,7 +58,7 @@
 				        {% endfor %}
 				      </select>
 				    </div>
-				    <div class="form-group col-sm-4">
+				    <div class="form-group col-4">
 				    	<h5>Waktu Keberangkatan</h5>
 				    	<input id="datepicker" name="date"/>
 					    <script>
@@ -69,7 +69,7 @@
 				    </div>
 				</div>
 				<div class="form-row">
-					<div class="form-group col-sm-4">
+					<div class="form-group col-4">
 				      <h5 for="inputFrom">Dari</h5>
 				      <select id="inputFrom" class="form-control">
 				      	{% for city in all_cities %}
@@ -77,7 +77,7 @@
 				        {% endfor %}
 				      </select>
 				    </div>
-				    <div class="form-group col-sm-4">
+				    <div class="form-group col-4">
 				      <h5 for="inputTo">Ke</h5>
 				      <select id="inputTo" class="form-control">
 				        {% for city in all_cities %}
@@ -99,12 +99,12 @@
 	<div class="container-fluid text-center text-md-left">
 	    <div class="container">
 	        <div class="row" style="color: white;">
-	        <div class="col-md-6 mt-md-0 mt-3">
+	        <div class="col-6 mt-md-0 mt-3">
 	            <h5 class="text-uppercase">About Us</h5>
 	            <p>Answering your Transportation Needs: Bus, Train, Plane. Many Choices, Safe & Trusted. We also offer the Best Prices.</p>
 	        </div>
 
-	        <div class="col-md-6">
+	        <div class="col-6">
 	            <h5 class="text-uppercase">Contacs</h5>
 	            <ul class="list-unstyled">
 	              <li>
