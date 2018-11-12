@@ -76,6 +76,48 @@
 			margin: auto;
 	   		width: 85%;
 		}
+
+		.news {
+		  position: relative;
+		  width: 100%;
+		  height: width: 100%;
+		}
+
+		.image {
+		  width: 100%;
+		  height: 50%;
+		}
+
+		.overlay {
+		  position: absolute;
+		  bottom: 0;
+		  height: 50%;
+		  width: 100%;
+		  opacity: 0;
+		  transition: .5s ease;
+		  background-color:  #599ff9;
+		}
+
+		.news:hover .overlay {
+		  opacity: 1;
+		}
+
+		.desc{
+			color: white;
+			background-color: #599ff9;
+		}
+
+		.newsdesc {
+		  color: white;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  -webkit-transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		  transform: translate(-50%, -50%);
+		  text-align: center;
+		}
+
 	</style>
 </head>
 
@@ -161,11 +203,61 @@
 			  	</div>
 			  	</div>
 			  </div>
-			</div>
+		</div>
+		</div>
+		</div>
+		</section>
+
+
+
+		<section class="container-fluid" id="fdetail">
+	    <div class="row">
+	    <div class="mx-auto" style="width: 80%;">
+		<h2 class="section-heading" style="text-align: center;">News Feed</h2>
+	    <hr class="light my-8">
+	    <div class="d-flex  my-flex-container">
+		    <div class="p-2 my-flex-item" style="width: 40%; margin: 10px;">
+		    	<div class="news">
+					<img src="250px-Manhera.png" name="newsimg" class="image">
+						<div class="desc" style=" height: 80px;">Add a description of the image here</div>
+					<div class="overlay">
+						<div class="newsdesc">Hello World</div>
+					</div>
+				</div>
+		    </div>
+		    <div class="p-2 my-flex-item" style="width: 40%; margin: 10px;">
+		    	<div class="news">
+							<img src="250px-Manhera.png" name="newsimg" class="image">
+						<div class="desc" style=" height: 80px;">Add a description of the image here</div>
+						<div class="overlay">
+							 <div class="newsdesc">Hello World</div>
+						</div>
+						</div>
+		    </div>
+		    <div class="p-2 my-flex-item" style="width: 40%; margin: 10px;">
+		    		<div class="news">
+							<img src="king vs king.jpg" name="newsimg" class="image">
+						<div class="desc" style=" height: 80px;">Add a description of the image here</div>
+						<div class="overlay">
+							 <div class="newsdesc">Hello World</div>
+						</div>
+						</div>
+		    </div>
+		</div>
+
+	
+
+		
+		  
+		 
 
 		</div>
 		</div>
-	</section>
+		</section>
+
+
+		
+
 	</div>
 
 	{% block footer %}
