@@ -11,13 +11,60 @@
 			height: 1080px;
 		}
 
+		.vl {
+		    border-left: 3px solid blue;
+		    height: 9px;
+		    margin-left: 4px;
+		}
+
+		.place-circle {
+		    background-color:#fff;
+		    border:1px solid blue;    
+		    height:10px;
+		    border-radius:50%;
+		    -moz-border-radius:50%;
+		    -webkit-border-radius:50%;
+		    width:10px;
+		    margin-left: 1px;
+		}
+
+		ul{
+			/*padding: 0;*/
+			list-style-type: none;
+		}
+
+		.tab-content{
+			min-height: 156px;
+		}
+
+		.card:hover{
+			box-shadow: 0 0 11px rgba(0,0,100,.2); 
+		}
+
+		[data-toggle="collapse"]:after {
+		display: inline-block;
+		    display: inline-block;
+		    font: normal normal normal 14px/1 FontAwesome;
+		    font-size: inherit;
+		    text-rendering: auto;
+		    -webkit-font-smoothing: antialiased;
+		    -moz-osx-font-smoothing: grayscale;
+		  content: "\f054";
+		  transform: rotate(90deg) ;
+		  transition: all linear 0.25s;
+		  float: right;
+		  }   
+		[data-toggle="collapse"].collapsed:after {
+		  transform: rotate(0deg) ;
+		}
+
 	</style>
 
 	{% with all_schedule.0.transportation_id.category_id.name as category %}
 
-		{% if category == "Bus" %}
 		<div style="background-color: #599ff9;">
 			<ul class="nav nav-pills nav-fill">
+		{% if category == "Bus" %}
 			  <li class="nav-item">
 			    <a class="nav-link active" href="/schedule_list/1"style="color: white;">Bus</a>
 			  </li>
@@ -27,11 +74,7 @@
 			  <li class="nav-item">
 			    <a class="nav-link" href="/schedule_list/3"style="color: white;">Pesawat</a>
 			  </li>
-			</ul>
-		</div>
 		{% elif category == "Kereta" %}
-		<div style="background-color: #599ff9;">
-			<ul class="nav nav-pills nav-fill">
 			  <li class="nav-item">
 			    <a class="nav-link" href="/schedule_list/1"style="color: white;">Bus</a>
 			  </li>
@@ -41,11 +84,7 @@
 			  <li class="nav-item">
 			    <a class="nav-link" href="/schedule_list/3"style="color: white;">Pesawat</a>
 			  </li>
-			</ul>
-		</div>
 		{% elif category == "Pesawat" %}
-		<div style="background-color: #599ff9;">
-			<ul class="nav nav-pills nav-fill">
 			  <li class="nav-item">
 			    <a class="nav-link" href="/schedule_list/1" style="color: white;">Bus</a>
 			  </li>
@@ -55,11 +94,7 @@
 			  <li class="nav-item">
 			    <a class="nav-link active" href="/schedule_list/3" style="color: white;">Pesawat</a>
 			  </li>
-			</ul>
-		</div>
 		{% else %}
-		<div style="background-color: #599ff9;">
-			<ul class="nav nav-pills nav-fill">
 			  <li class="nav-item">
 			    <a class="nav-link" href="/schedule_list/1" style="color: white;">Bus</a>
 			  </li>
@@ -69,16 +104,16 @@
 			  <li class="nav-item">
 			    <a class="nav-link" href="/schedule_list/3" style="color: white;">Pesawat</a>
 			  </li>
+		{% endif %}
 			</ul>
 		</div>
-		{% endif %}
 	{% endwith %}
 
-	<div class="card card-header" style="width: 100%">
-		<div class="container">
+	<div class="card card-header container-fluid" style="width: 100%">
+		<!-- <div class="container"> -->
 			<form class="mt-3 mb-3" action="#" method="GET">
 				<div class="form-row">
-					<div class="form-group col-sm-12">
+					<div class="form-group col-12">
 				    	<h5>Waktu</h5>
 				    	<input id="datepicker" width="276" />
 					    <script>
@@ -87,7 +122,7 @@
 					        });
 					    </script>
 				    </div>
-					<div class="form-group col-sm-6">
+					<div class="form-group col-6">
 				      <h5 for="inputFrom">Dari</h5>
 				      <select id="inputFrom" class="form-control">
 				      	{% for city in all_cities %}
@@ -95,7 +130,7 @@
 				        {% endfor %}
 				      </select>
 				    </div>
-				    <div class="form-group col-sm-6">
+				    <div class="form-group col-6">
 				      <h5 for="inputTo">Ke</h5>
 				      <select id="inputTo" class="form-control">
 				        {% for city in all_cities %}
@@ -106,15 +141,15 @@
 			    </div>
 			    <button type="submit" class="btn btn-primary">Cari</button>
 			</form>
-		</div>
 	</div>
+	<!-- </div> -->
 
 	<div class="row mt-3 mb-1">
-		<h4 class="col-sm-3">Filter</h4>
-		<h4 class="col-sm-9">Schedule List</h4>
+		<h4 class="col-3">Filter</h4>
+		<h4 class="col-9">Schedule List</h4>
 	</div>
 	<div class="row">
-		<div class="col-sm-3">
+		<div class="col-3">
 			<div class="accordion" id="accordionExample">
 			    <div class="card-header" id="headingOne">
 			      <h5 class="mb-0">
@@ -123,7 +158,6 @@
 			        </button>
 			      </h5>
 			    </div>
-
 			    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
 			      <div class="card-body">
 			        TEST COLLAPSE
@@ -138,7 +172,6 @@
 			        </button>
 			      </h5>
 			    </div>
-
 			    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
 			      <div class="card-body">
 			        TEST COLLAPSE
@@ -147,82 +180,192 @@
 			</div>
 		</div>
 
-		<div class="col-sm-9">
-		{% load staticfiles %}
-		{% for schedule in all_schedule %}
-		<div id="accordion">
-		  	<div class="card">
-			  	<!-- ID HEADING HARUS BEDA -->
-			    <div class="card" id={{schedule.id}}>
-			      <!-- <h5 class="mb-0"> -->
-			      	<!-- <i class="fa fa-cab" aria-hidden="true"></i> -->
-			        <button class="btn btn-link" style="width: 100%;text-decoration: none; color: black;" data-toggle="collapse" data-target="#{{schedule.transportation_id.category_id.name}}{{schedule.id}}" aria-expanded="true" aria-controls={{schedule.id}}>
-			        <div class="row mx-auto">
-			        	<div class="col-md-1">
-			        		<img class="logo-icon" src="{{schedule.transportation_id.image}}">
-			        	</div>
-				        <div class="col-md-4">
-				            <div align="left" style="font-size: 18px">{{schedule.transportation_id.name}}</div>
-				            <h6 align="left" style="font-size: 20px">{{schedule.place_from_id.city.code_name}} <i class='fas fa-arrow-right' style='font-size:18px'></i>  {{schedule.place_destination_id.city.code_name}}</h6>
-				        </div>
-				        <div class="col-md-4">
-				           <div align="left" style="font-weight: bold;">{{schedule.date_time}} </div>
-				        </div>
-				        <div class="col-md-2" align="right">
-				           <h6 style="color: orange; font-size: 20px;">IDR {{schedule.cost}}</h6>
-				        </div>
-			      	</div>
+		<div class="col-9">
+		<!-- {% load staticfiles %} -->
+			<div id="accordion">
+			{% for schedule in all_schedule %}
+			
+			  	<div class="card mb-2 shadow-sm bg-white rounded">
+				  	<!-- ID HEADING HARUS BEDA -->
+				    <div class="card" id="{{schedule.id}}" style="min-height:75px;">
+				        <div class="row">
+				        	<div class="col-11 mt-3 mb-3">
+					        <div id="collapseHead{{schedule.id}}" class="row mx-auto">
+					        	<div class="col-1">
+					        		<img class="logo-icon" src="{{schedule.transportation_id.image}}">
+					        	</div>
+						        <div id="kolom2-{{schedule.id}}" class="col-3">
+						            <div align="left" style="font-size: 18px">{{schedule.transportation_id.name}}</div>
+						            <h6 id="fromto{{schedule.id}}" align="left" style="font-size: 18px">{{schedule.place_from_id.city.code_name}}<i class='fas fa-arrow-right' style='font-size:18px'></i>  {{schedule.place_destination_id.city.code_name}}</h6>
+						        </div>
+						        <div id="kolom3-{{schedule.id}}"class="col-4">
+						           <div align="left" style="font-weight: bold;">{{schedule.date_time}} </div>
+						           <div align="left">Langsung</div>
+						        </div>
+						        <div id="harga{{schedule.id}}" class="col-4 mt-3" align="right">
+						           <h6 style="color: orange; font-size: 20px;">{{schedule.cost_currency_format}}</h6>
+						        </div>
+					      	</div>
+					        </div>
+					    <div class="col-1 mt-4">
+					    	<a class="btn btn-link" style="width: 100%;height: 100%;text-decoration: none; color: black;" data-toggle="collapse" data-target="#clps{{schedule.id}}" aria-expanded="true" aria-controls="{{schedule.id}}" id="clp{{schedule.id}}"></a>
+					    </div>
+						</div>
+				    </div>
+				    <script type="text/javascript">
+						$(document).ready(function(){
+							$('#clps{{schedule.id}}').on('hide.bs.collapse', function() {
+								var kolom2 = $('#kolom2-{{schedule.id}}');
+								var harga_tag = $('#harga{{schedule.id}}');
+								kolom2.removeClass("col-4").addClass("col-3");
+								harga_tag.removeClass("col-3").addClass("col-4");
+								$('#btn{{schedule.id}}').remove();
+								$('#kolom3-{{schedule.id}}').show();
+								$('#fromto{{schedule.id}}').css("font-size", "18px");
+								$('#fromto{{schedule.id}}').html("{{schedule.place_from_id.city.code_name}}<i class='fas fa-arrow-right' style='font-size:18px'></i>  {{schedule.place_destination_id.city.code_name}}");
+								$('#harga{{schedule.id}}').removeClass("mt-4").addClass("mt-3");
+							});
+							$('#clps{{schedule.id}}').on('show.bs.collapse', function() {
+								var harga_tag = $('#harga{{schedule.id}}');
+								var kolom2 	  = $('#kolom2-{{schedule.id}}');
+								var kolom3 	  = $('#kolom3-{{schedule.id}}');
+								// kolom3.remove();
+								kolom3.hide();
+								$('#collapseHead{{schedule.id}}').append("<a href='/schedule_detail/{{schedule.id}}' id='btn{{schedule.id}}' style='color: white;background-color: orange; height: 75%; width:100%;' align='right' class='btn btn-link col-4 mt-3'>Pilih Barang</a>");
+								$('#fromto{{schedule.id}}').html("Berangkat<br>{{schedule.date_time}}");
+								$('#fromto{{schedule.id}}').css("font-size", "16px");
+								harga_tag.removeClass("mt-3").addClass("mt-4");
+								harga_tag.removeClass("col-4").addClass("col-3");
+								kolom2.removeClass("col-3").addClass("col-4");
+							});
+						});
+					</script>
+				    <!-- ID COLLAPSE BEDA -->
+				    <div id="clps{{schedule.id}}" class="collapse" aria-labelledby="heading{{schedule.id}}" data-parent="#accordion">
+				      <div class="card-body">
+				      	<!-- NAV TABS -->
+				      <ul class="nav nav-tabs" role="tablist">
+					    <li class="nav-item">
+					      <a class="nav-link active" data-toggle="tab" href="#detail_keberangkatan{{schedule.id}}">Detail Keberangkatan</a>
+					    </li>
+					    <li class="nav-item">
+					      <a class="nav-link" data-toggle="tab" href="#detail_harga{{schedule.id}}">Detail Harga</a>
+					    </li>
+					  </ul>
+					    
+					  <!-- Tab panes -->
+					  <div class="tab-content">
+					    <div id="detail_keberangkatan{{schedule.id}}" class="container-fluid tab-pane active"><br>
+					       <div class="row">
+					       	<div class="col-1">
+					       		<!-- LOGO -->
+					       		<img class="logo-icon" src="{{schedule.transportation_id.image}}">
+					       	</div>
+					       	<div class="col-11">
+					       		<div class="row">
+							        <div class="col-1 ">
+								        <!-- isi -->
+								        <ul>
+								          	<li>
+								          		<div class="place-circle mb-1 mt-2"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="place-circle"></div>
+								          	</li>
+								        </ul>
+							        </div>
+							        <div class="col-4 mt-md-0 mt-3">
+						          		<div style="font-size: 14px; font-weight: bold;">
+						          			({{schedule.place_from_id.city.code_name}}) {{schedule.place_from_id.nickname}}
+						          		</div>
+						          		<div style="font-size: 14px; margin-top: 32px; margin-bottom: 32px;">
+						          			50mnt
+						          		</div>
+						          		<div style="font-size: 14px; font-weight: bold;">
+						          			({{schedule.place_destination_id.city.code_name}}) {{schedule.place_destination_id.nickname}}
+						          		</div>
+							        </div>
+							        <div class="col-4">
+							        	<div style="color:#808080;"> Detail Barang </div>
+									    <div>🕘 <strong>22.15 - 01.16</strong></div>
+									    <div>🛄 <strong>20 Kg</strong></div>
+							        </div>
+							        <div class="col-3 mt-md-0 mt-3">
+							          	<div style="color:#808080;"> Detail Barang </div>
+									    <div>🕘 <strong>22.15 - 01.16</strong></div>
+									    <div>🛄 <strong>20 Kg</strong></div>
+							        </div>
 
-			        </button>
-			    </div>
-			    <!-- ID COLLAPSE BEDA -->
-			    <div id={{schedule.transportation_id.category_id.name}}{{schedule.id}} class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-			      <div class="card-body">
-			      	<ul class="nav nav-tabs">
-				    <li class="nav-item">
-				      <a class="nav-link active" data-toggle="tab" href="#home">Details</a>
-				    </li>
-				    <li class="nav-item">
-				      <a class="nav-link" data-toggle="tab" href="#menu1">Fare</a>
-				    </li>
-				  </ul>
+						    	</div>
 
-				  <!-- Tab panes -->
-				  <div class="tab-content">
-				    <div id="home" class="container tab-pane active"><br>
+					      </div>
+					     
+					    </div>
+					    
+					  </div>
+					  <div id="detail_harga{{schedule.id}}" class=" tab-pane fade"><br>
 				       <div class="row">
-				         <div class="col-md-4 mt-md-0 mt-3">
+				         <div class="col-6 mt-md-0 mt-3">
 				          <!-- isi -->
-				        </div>
-				        <div class="col-md-4 mt-md-0 mt-3">
+				          	<div style="color:#808080;">Dewasa x 1</div>
+				         </div>
+				         <div class="col-6 mt-md-0 mt-3" align="right">
+				        	<div>{{schedule.cost_currency_format}}</div>
+				         </div>
+
+				         <div class="col-6 mt-md-0 mt-3">
 				          <!-- isi -->
-				        </div>
-				           <div class="col-md-4 mt-md-0 mt-3">
+				          	<div style="color:#808080;">Biaya Layanan</div>
+				         </div>
+				         <div class="col-6 mt-md-0 mt-3" align="right">
+				        	<div style="color: blue">GRATIS</div>
+				         </div>
+
+				         <div class="col-6 mt-md-0 mt-3">
 				          <!-- isi -->
-				        </div>
+				          	<div style="color:#808080;">Pajak</div>
+				         </div>
+				         <div class="col-6 mt-md-0 mt-3 mb-3" align="right">
+				        	<div style="color: blue">Termasuk</div>
+				         </div>
+				         <hr class="mt-2"style="width:100%; height:2px; background-color: #808080; border:none;" />
+				         <div class="col-6 mt-md-0">
+				          <!-- isi -->
+				          	<h5>Total Pembayaran</h5>
+				         </div>
+				         <div class="col-6 mt-md-0" align="right">
+				        	<h5 style="color: orange">{{schedule.cost_currency_format}}</h5>
+				         </div>
 				      </div>
 				    </div>
-				    <div id="menu1" class="container tab-pane fade"><br>
-				       <div class="row">
-				         <div class="col-md-4 mt-md-0 mt-3">
-				          <!-- isi -->
-				        </div>
-				        <div class="col-md-4 mt-md-0 mt-3">
-				          <!-- isi -->
-				        </div>
-				           <div class="col-md-4 mt-md-0 mt-3">
-				   		  <!-- isi -->
-				        </div>
-				      </div>
+				 	 </div>
 				    </div>
-				  </div>
-			 	 </div>
-			    </div>
+					</div>
+				</div>
+			{% endfor %}
 			</div>
 		</div>
-{% endfor %}
-	</div>
-</div>
    <!-- END COLLAPSE -->
-
+</div>
 {% endblock %}

@@ -30,6 +30,7 @@ class Infrastructure(models.Model):
 
 class Place(models.Model):
     name                    = models.CharField(max_length=128)
+    nickname                = models.CharField(max_length=128, default="DEFAULT")
     infrastructure_id       = models.ForeignKey(Infrastructure, on_delete=models.CASCADE)
     city                    = models.ForeignKey(City, on_delete=models.CASCADE)
     address                 = models.CharField(max_length=128)
@@ -43,16 +44,16 @@ class Schedule(models.Model):
     place_destination_id    = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='place_destination')
     depart_status           = models.CharField(max_length=16)
     cost                    = models.IntegerField(null=True)
-    cost_currency_format    = models.CharField(max_length=16)
+    cost_currency_format    = models.CharField(max_length=16, default="IDR ")
     def __str__(self):
         return self.transportation_id.name + " " + str(self.date_time)
 
 class Account(models.Model):
     username                = models.CharField(max_length=32)
-    first_name              = models.CharField(max_length=32)
-    last_name               = models.CharField(max_length=32)
+    first_name              = models.CharField(max_length=32, default="")
+    last_name               = models.CharField(max_length=32, default="")
     password                = models.CharField(max_length=32)
-    phone_number            = models.CharField(max_length=16)
+    phone_number            = models.CharField(max_length=16, default="")
     email                   = models.CharField(max_length=64)
     def __str__(self):
         return self.username + " " + self.email
