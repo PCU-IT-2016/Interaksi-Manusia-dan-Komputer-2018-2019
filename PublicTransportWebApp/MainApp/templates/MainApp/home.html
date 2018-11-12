@@ -1,34 +1,66 @@
 {% extends "MainApp/header.html" %}
 
 {% block content %}
+	{% load staticfiles %}
 
 	<style type="text/css">
 		a.custom-card,
 		a.custom-card:hover {
 		  color: inherit;
-		}	
+		}
+		.wisata,
+		.wisata:hover {
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
 	</style>
 
-	<section class="container-fluid mt-3" id="about">
+	<div id="carouselExampleIndicators" class="carousel slide shadow-lg mt-3" data-ride="carousel" style="width: 100%; height: 600px;">
+	  <ol class="carousel-indicators">
+	    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+	    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+	    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+	  </ol>
+	  <div class="carousel-inner">
+	    <div class="carousel-item active">
+	      <img class="d-block w-100" src="{% static 'MainApp/img/promo1.jpg' %}" alt="First slide" style="object-fit: cover;height: 600px;">
+	    </div>
+	    <div class="carousel-item">
+	      <img class="d-block w-100" src="{% static 'MainApp/img/promo2.png' %}" alt="Second slide" style="object-fit: cover;height: 600px;">
+	    </div>
+	    <div class="carousel-item">
+	      <img class="d-block w-100" src="{% static 'MainApp/img/promo3.jpg' %}" alt="Third slide" style="object-fit: cover; height: 600px;">
+	    </div>
+	    <div class="carousel-item">
+	      <img class="d-block w-100" src="{% static 'MainApp/img/promo4.jpg' %}" alt="Fourth slide" style="object-fit: cover; height: 600px;">
+	    </div>
+	  </div>
+	  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
+
+	<section class="container-fluid mt-5 mb-3" id="about">
       <div class="container">
         <div class="row">
-          <div class="col-rg-4 mx-auto text-center">
-            <h2 class="section-heading">Pick a Transport</h2>
-            	<hr class="light my-8">
-            	<p class="text-faded mb-4"></p>
+          <div class="mx-auto text-center">
+            <h2 class="section-heading">Pilih Transportasi</h2>
           </div>
         </div>
       </div>
     </section>
-
+    <hr class="light my-8">
 	<div class="row">
-
-		{% load staticfiles %}
 		{% for category in all_categories %}
 		<div class="col-4 d-flex align-items-stretch" align="center">
 			<div class="custom-card d-flex align-items-stretch" style="width: 32rem;" align="left">
-				<a href="/schedule_list/{{category.id}}" class="card card-link bg-light mb-3 ">
-				    <!-- <img class="card-img-top" src="{% static '{{category.image}}' %}" alt="Card image cap"> -->
+				<!-- /schedule_list/{{category.id}} -->
+				<a href="/schedule_list/{{category.id}}" id="cate{{category.id}}" class="card card-link bg-light mb-3 ">
 				    {% if category.name == "Bus" %}
 				    <img class="card-img-top" src="{% static 'MainApp/img/bus0.jpg' %}" alt="Card image cap">
 				    {% elif category.name == "Pesawat" %}
@@ -45,56 +77,155 @@
 		</div>
 		{% endfor %}
 	</div>
-
-	<div class="card card-header" style="width: 100%">
-		<div class="container">
+	<div class="card container-fluid shadow-lg rounded" style="width: 100%">
+		<!-- <div class="container"> -->
 			<form class="mt-3 mb-3" action="#" method="GET">
 				<div class="form-row">
-					<div class="form-group col-4">
-				      <h5 for="inputCategory">Category</h5>
-				      <select id="inputCategory" class="form-control">
-				      	{% for category in all_categories %}
-				        	<option selected>{{category.name}}</option>
+					
+					<div class="form-group col-2">
+				      <h5 for="inputFrom"><i class="material-icons" style="font-size:20px">place</i>Dari</h5>
+				      <select id="inputFrom" class="form-control">
+				      	{% for city in all_cities %}
+				        	<option selected>({{city.code_name}}){{city.name}}</option>
 				        {% endfor %}
 				      </select>
 				    </div>
-				    <div class="form-group col-4">
-				    	<h5>Waktu Keberangkatan</h5>
-				    	<input id="datepicker" name="date"/>
+				    <div class="form-group col-2">
+				      <h5 for="inputTo"><i class="material-icons" style="font-size:20px">place</i>Ke</h5>
+				      <select id="inputTo" class="form-control">
+				        {% for city in all_cities %}
+				        	<option selected>({{city.code_name}}){{city.name}}</option>
+				        {% endfor %}
+				      </select>
+				    </div>
+				    <div class="form-group col-2">
+				    	<h5><i class="material-icons" style="font-size:20px">access_time</i>Waktu</h5>
+				    	<input id="datepicker" placeholder="mm/dd/yyyy"/>
 					    <script>
 					        $('#datepicker').datepicker({
-					            uiLibrary: 'bootstrap4'
+					            uiLibrary   : 'bootstrap4',
+					            "setDate"   : new Date(),
+        						"autoclose" : true
 					        });
 					    </script>
 				    </div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-4">
-				      <h5 for="inputFrom">Dari</h5>
-				      <select id="inputFrom" class="form-control">
-				      	{% for city in all_cities %}
-				        	<option selected>{{city.name}}</option>
-				        {% endfor %}
-				      </select>
-				    </div>
-				    <div class="form-group col-4">
-				      <h5 for="inputTo">Ke</h5>
-				      <select id="inputTo" class="form-control">
-				        {% for city in all_cities %}
-				        	<option selected>{{city.name}}</option>
-				        {% endfor %}
-				      </select>
-				    </div>
+				    <div class="form-group col-2">
+						<h5><i class="material-icons"style="font-size:20px">accessibility</i>Penumpang</h5>
+						<input class="form-control" type="number" value="1" id="example-number-input">
+					</div>
+					<div class="form-group col-4 mt-4" align="center">
+			    		<a href="/schedule_list/3" class="btn btn-primary" style="width: 100%;height: 90%; margin-top: 6px;">Cari</a>
+			    	</div>
 			    </div>
-			    <button type="submit" class="btn btn-primary">Cari</button>
 			</form>
-		</div>
 	</div>
-	
+	<hr class="light my-8">
+	<div style="margin-top: 64px;">
+	<section class="container mt-5" id="fdetail" >
+		    <div class="row">
+		    <div class="mx-auto" style="width: 100%;">
+			<h2 class="section-heading" style="text-align: center;">Berita Terbaru</h2>
+		    <hr class="light my-8">
+
+			<div class="d-flex  my-flex-container">
+			    <div class="p-2 my-flex-item" style="width: 40%; height:400px; margin: 10px;">
+			    	<div class="news">
+						<img src="250px-Manhera.png" name="newsimg" class="image">
+							<div class="desc" style=" height: 80px;">Promo</div>
+						<div class="overlay">
+							<div class="newsdesc">Promo</div>
+						</div>
+					</div>
+			    </div>
+			    <div class="p-2 my-flex-item" style="width: 40%; height:400px; margin: 10px;">
+			    	<div class="news">
+								<img src="250px-Manhera.png" name="newsimg" class="image">
+							<div class="desc" style=" height: 80px;">Promo</div>
+							<div class="overlay">
+								 <div class="newsdesc">Promo</div>
+							</div>
+							</div>
+			    </div>
+			    <div class="p-2 my-flex-item" style="width: 40%; height:400px; margin: 10px;">
+			    		<div class="news">
+								<img src="king vs king.jpg" name="newsimg" class="image">
+							<div class="desc" style=" height: 80px;">Promo</div>
+							<div class="overlay">
+								 <div class="newsdesc">Promo</div>
+							</div>
+							</div>
+			    </div>
+			</div>
+
+			</div>
+			</div>
+			</section>
+		</div>
+		
+		<h1 class="section-heading" style="text-align: center;">Wisata Populer</h1>
+		<hr class="light my-8">
+		<div class="mb-5" align="center">
+			<div class="row">
+				<div class="row mb-3">
+					<div class="col-4 d-flex align-items-stretch">
+						<div class="card bg-dark text-white">
+						  <img class="card-img" style="height:240px;object-fit: cover;" src="{% static 'MainApp/img/Bedugul.jpg' %}" alt="Card image">
+						  <div class="card-img-overlay">
+						    <h3 class="card-title" align="left">Bali<br>Bedugul</h3>
+						  </div>
+						</div>
+					</div>
+					<div class="col-4 d-flex align-items-stretch">
+						<div class="card bg-dark text-white">
+						  <img class="card-img" style="height:240px;object-fit: cover;" src="{% static 'MainApp/img/raja_ampat.jpg' %}" alt="Card image">
+						  <div class="card-img-overlay">
+						    <h3 class="card-title" align="left">Papua<br>Raja Ampat</h3>
+						  </div>
+						</div>
+					</div>
+					<div class="col-4 d-flex align-items-stretch">
+						<div class="card bg-dark text-white">
+						  <img class="card-img" style="height:240px;object-fit: cover;" src="{% static 'MainApp/img/candi-borobudur.jpg' %}" alt="Card image">
+						  <div class="card-img-overlay">
+						    <h3 class="card-title" align="left">Jawa Tengah<br>Candi Borobudur</h3>
+						  </div>
+						</div>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col-4 d-flex align-items-stretch">
+						<div class="card bg-dark text-white">
+						  <img class="card-img" style="height:240px;object-fit: cover;" src="{% static 'MainApp/img/fuji.jpg' %}" alt="Card image">
+						  <div class="card-img-overlay">
+						    <h3 class="card-title" align="left">Jepang<br>Gunung Fuji</h3>
+						  </div>
+						</div>
+					</div>
+					<div class="col-4 d-flex align-items-stretch">
+						<div class="card bg-dark text-white">
+						  <img class="card-img" style="height:240px;object-fit: cover;" src="{% static 'MainApp/img/merlion.jpg' %}" alt="Card image">
+						  <div class="card-img-overlay">
+						    <h3 class="card-title" align="left">Singapura<br>Merlion</h3>
+						  </div>
+						</div>
+					</div>
+					<div class="col-4 d-flex align-items-stretch">
+						<div class="card bg-dark text-white">
+						  <img class="card-img" style="height:240px;object-fit: cover;" src="{% static 'MainApp/img/venezia.jpg' %}" alt="Card image">
+						  <div class="card-img-overlay">
+						    <h3 class="card-title" align="left">Italy<br>Venezia</h3>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
 {% endblock %}
 
 {% block footer %}
 <!-- FOOTER -->
+
 <div id="footer" class="page-footer font-small blue pt-4" style="background-color: #599ff9;">
 	<div class="container-fluid text-center text-md-left">
 	    <div class="container">
@@ -119,7 +250,7 @@
 	        </div>
 	    </div>
 	    <div class="footer-copyright text-center py-3"style="color: white;">© 2018 Copyright:
-	      IMK
+	      Enterprise team.
 	    </div>
   	</div>
 </div>
