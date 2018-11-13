@@ -8,10 +8,10 @@
     	<div class="col-7 mb-3">
 			<h4 class="section-heading">Detail Pesanan</h4>
     		<!-- <hr class="light my-8"> -->
-
+    		{% for s in schedule %}
 	    	<div class="card">
 			  <div style="font-size: 20px;" class="ml-4 mt-3">
-			  	&#9992; Surabaya (SUB) &#8594; Samarinda (SRI)
+			  	&#9992; {{s.place_from_id.city.name}} ({{s.place_from_id.city.code_name}}) &#8594; {{s.place_destination_id.city.name}} ({{s.place_destination_id.city.code_name}})
 			  </div>
 			  <hr class="light my-8">
 			  <div class="card-body" >
@@ -34,6 +34,59 @@
 			  	</div>
 			  </div>
 			</div>
+
+			<h4 class="section-heading mt-5">Detail Transportasi</h4>
+    		<!-- <hr class="light my-8"> -->
+
+	    	<div class="card">
+			  <div style="font-size: 20px;" class="row ml-4 mt-3">
+			  	<div class="col-2">
+			  		<img style="width: 100%; object-fit: cover;" src="{{s.transportation_id.logo}}">
+			  	</div>
+			  	<div class="col-10 mt-auto mb-auto">
+			  		{{s.transportation_id.name}}
+			  	</div>
+			  </div>
+			  <hr class="light my-8">
+			  <div class="card-body" >
+			  	<div class="row">
+			  		<div class="col-12 mx-auto">
+			  			<img src="{{s.transportation_id.image}}" style="width: 100%; object-fit: cover;">
+			  		</div>
+				  	<div class="col-12 ml-3 mr-3 mt-4">
+					  	<h6 style="color:#808080;"> Deskripsi </h6>
+					  	<p>{{s.transportation_id.description}}</p>
+				  	</div>
+				  	<div class="col-6 mt-4">
+				  		<div class="" align="center">
+				  			<img src="https://citilinkstorage.blob.core.windows.net/citilink/images/default-source/Fleet-Images/ico2.png">
+				  			<div style="color: gray; font-size: 12px;" class="mt-2">Kecepatan</div>
+				  			<h5 style="color: green;">{{s.transportation_id.speed}}.00km/h</h5>
+				  		</div>
+				  	</div>
+				  	<div class="col-6 mt-4">
+				  		<div class="" align="center">
+				  			<img src="https://citilinkstorage.blob.core.windows.net/citilink/images/default-source/Fleet-Images/ico4.png" class="ml-auto mr-auto">
+
+				  			<div style="color: gray; font-size: 12px;" class="mt-2">Kapasitas Bahan Bakar</div>
+				  			<h5 style="color: green;">24.210 liter</h5>
+				  		</div>
+				  	</div>
+				  	<div class="col-12 mt-4">
+				  		<div class="" align="center">
+				  			<img src="https://citilinkstorage.blob.core.windows.net/citilink/images/default-source/Fleet-Images/ico6.png" style="height: 100%;">
+				  			<div style="color: gray; font-size: 12px;" class="mt-2">Menampung Hingga</div>
+				  			<h5 style="color: green;">{{s.transportation_id.capacity}} Passangers</h5>
+				  		</div>
+				  	</div>
+			  	</div>
+			  </div>
+			</div>
+
+			{% endfor %}
+
+			
+
 		</div>
 		<div class="col-5">
 			<h4 class="section-heading">Detail Harga</h4>

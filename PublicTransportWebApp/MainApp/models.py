@@ -9,7 +9,10 @@ class Category(models.Model):
 
 class Transportation(models.Model):
     name                    = models.CharField(max_length=64)
+    logo                    = models.TextField(null=True)
     image                   = models.TextField(null=True)
+    speed                   = models.IntegerField(default=0)
+    capacity                = models.IntegerField(default=180)
     category_id             = models.ForeignKey(Category, on_delete=models.CASCADE)
     status                  = models.CharField(max_length=16)
     description             = models.TextField()
