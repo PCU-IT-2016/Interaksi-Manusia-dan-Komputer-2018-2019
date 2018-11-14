@@ -2,48 +2,321 @@
 
 {% block content %}
 
+
+<style type="text/css">
+		.logo-icon{
+			width: 100%;
+		}
+		.vl {
+		    border-left: 3px solid blue;
+		    height: 9px;
+		    margin-left: 4px;
+		}
+		ul{
+			padding: 0;
+			list-style-type: none;
+		}
+		.tab-content{
+			min-height: 156px;
+		}
+		.place-circle {
+		    background-color:#fff;
+		    border:1px solid blue;    
+		    height:10px;
+		    border-radius:50%;
+		    -moz-border-radius:50%;
+		    -webkit-border-radius:50%;
+		    width:10px;
+		    margin-left: 1px;
+		}
+		.drop-down { 
+				 position: relative;  
+				 display: inline-block;    
+				 width: auto;       
+				 margin-top: 0;   
+				 font-family: verdana;    
+		 }      
+		 .drop-down select {   
+		 	display: none;    
+		 }      
+		 .drop-down .select-list {   
+			 position: absolute;     
+			 top: 0;      
+			 left: 0;     
+			 z-index: 1;    
+			 margin-top: 40px;    
+			 padding: 0;         
+			 background-color: #595959;      
+		 }      
+		 .drop-down .select-list li {   
+		 	display: none;      
+		 }    
+		 .drop-down .select-list li span {  
+			 display: inline-block;      
+			 min-height: 40px;        
+			 min-width: 280px;      
+			 width: 100%;        
+			 padding: 5px 15px 5px 35px;     
+			 background-color: #595959;     
+			 background-position: left 10px center;   
+			 background-repeat: no-repeat;       
+			 font-size: 16px;       
+			 text-align: left;       
+			 color: #FFF;        
+			 opacity: 0.7;      
+			 box-sizing: border-box;     
+		 }     
+		 .drop-down .select-list li span:hover,  
+		 .drop-down .select-list li span:focus {     
+		 	opacity: 1;     
+		 }
+</style>
+
 {% load staticfiles %}
 <section class="container-fluid" id="fdetail">
     <div class="row mt-5">
     	<div class="col-7 mb-3">
-			<h4 class="section-heading">Detail Pesanan</h4>
-    		<!-- <hr class="light my-8"> -->
     		{% for s in schedule %}
-	    	<div class="card">
+			<h4 class="section-heading">Tinjau Pesanan</h4>
+	    	<div class="card" style="min-height: 300px;">
 			  <div style="font-size: 20px;" class="ml-4 mt-3">
 			  	&#9992; {{s.place_from_id.city.name}} ({{s.place_from_id.city.code_name}}) &#8594; {{s.place_destination_id.city.name}} ({{s.place_destination_id.city.code_name}})
 			  </div>
 			  <hr class="light my-8">
-			  <div class="card-body" >
-			  	
-			  	<div class="row">
-			  	<div class="col-6">
-			  	<h6 style="color:#808080;"> Plane </h6>
-			  	<!-- taro logo -->
-			    <h6>Lion Air</h6>
-			    <h6>(QZ-354)Economy</h6>
-			  	</div>
-			  	
-			  	<div class="col-6">
-			  	<h6 style="color:#808080;"> Flight Schedule </h6>
-			    <h6>Date: 06-11-2018</h6>
-			    <h6>🕘 22.15-01.16</h6>
-			    <h6>🛄 Luggage: 20 Kg</h6>
-			    <h6>Duration: 3 Hours</h6>
-			  	</div>
+			  <div class="card-body">
+			  	<div class="row mt-3">
+			       	<div class="col-2">
+			       		<!-- LOGO -->
+			       		<img class="logo-icon" src="{{s.transportation_id.logo}}">
+			       	</div>
+			       	<div class="col-10">
+			       		<div class="row">
+					        <div class="col-1 ">
+						        <!-- isi -->
+						        <ul>
+						          	<li>
+						          		<div class="place-circle mb-1 mt-2"></div>
+						          	</li>
+						          	<li>
+						          		<div class="vl mb-1"></div>
+						          	</li>
+						          	<li>
+						          		<div class="vl mb-1"></div>
+						          	</li>
+						          	<li>
+						          		<div class="vl mb-1"></div>
+						          	</li>
+						          	<li>
+						          		<div class="vl mb-1"></div>
+						          	</li>
+						          	<li>
+						          		<div class="vl mb-1"></div>
+						          	</li>
+						          	<li>
+						          		<div class="vl mb-1"></div>
+						          	</li>
+						          	<li>
+						          		<div class="vl mb-1"></div>
+						          	</li>
+						          	<li>
+						          		<div class="place-circle"></div>
+						          	</li>
+						        </ul>
+					        </div>
+					        <div class="col-4 mt-md-0 mt-3">
+				          		<div style="font-size: 14px; font-weight: bold;">
+				          			({{s.place_from_id.city.code_name}}) {{s.place_from_id.nickname}}
+				          		</div>
+				          		<div style="font-size: 14px; margin-top: 32px; margin-bottom: 32px;">
+				          			50mnt
+				          		</div>
+				          		<div style="font-size: 14px; font-weight: bold;">
+				          			({{s.place_destination_id.city.code_name}}) {{s.place_destination_id.nickname}}
+				          		</div>
+					        </div>
+					        <div class="col-7">
+					        	<div style="color:#808080;"> Detail Barang </div>
+							    <div>🕘 <strong>22.15 - 01.16</strong></div>
+							    <div>🛄 <strong>20 Kg</strong></div>
+
+							    <div class="mt-2" style="color: gray;">Berangkat pada</div>
+							    <strong>{{s.date_time}}</strong>
+					        </div>
+				    	</div>
+
+			      	</div>
 			  	</div>
 			  </div>
 			</div>
 
+			<!-- OLD TRANSPORTATION DETAIL HERE -->
+
+			<h4 class="section-heading mt-5">Detail Pemesan</h4>
+	    	<div class="card" style="min-height: 300px;">
+			  <div class="ml-4 mt-3">
+			  	<div class="row">
+			       	<div class="col-3">
+			       	  <div style="color: gray; font-size: 16px;">Titel</div>
+			       	  <select name="kategori" id="kategori" class="form-control">
+	                    <option value="Breakfast">Tuan</option>
+	                    <option>Nyonya</option>
+	                    <option>Nona</option>
+	                  </select>
+			       	</div>
+			       	<div class="col-9">
+			       		<div style="color: gray; font-size: 16px;">Nama Lengkap</div>
+			       		<input class="form-control" type="text" placeholder="cth. Andre Gunawan" style="font-size: 14px; width: 90%;">
+			       		<small id="namalengkapHelp" class="form-text text-muted">Isi sesuai KTP/Paspor/SIM(tanpa tanda baca & gelar)</small>
+			      	</div>
+			      	<div class="col-3 mt-3">
+			       	  <div style="color: gray; font-size: 16px;">Kode Negara</div>
+			       	  <select name="kategori" id="kategori" class="form-control">
+	                    <option value="IDN">(+62) Indonesia</option>
+	                    <option value="MAL">(+60) Malaysia</option>
+	                    <option value="SGN">(+65) Singapore</option>
+	                  </select>
+			       	</div>
+			       	<div class="col-9 mt-3">
+			       		<div style="color: gray; font-size: 16px;">Nomor Telefon</div>
+			       		<input class="form-control" type="text" placeholder="cth. 82298799200" style="font-size: 14px; width: 90%;">
+			       	</div>
+			       	<div class="col-12 mt-3 mb-3">
+			       		<div style="color: gray; font-size: 16px;">Alamat Email</div>
+			       		<input class="form-control" type="text" placeholder="cth. contoh@email.com" style="font-size: 14px; width: 92.5%;">
+			       		<small id="emailHelp" class="form-text text-muted">E-ticket akan dikirim ke alamat Email ini</small>
+			       	</div>
+			  	</div>
+			  </div>
+			</div>
+
+			<h4 class="section-heading mt-5">Detail Penumpang</h4>
+	    	<div class="card" style="min-height: 300px;">
+	    	  <div style="font-size: 20px;" class="ml-4 mt-3">
+			  	Penumpang 1: Dewasa
+			  </div>
+			  <hr class="light my-8">
+			  <div class="ml-4 mb-3">
+			  	<div class="row">
+			       	<div class="col-3">
+			       	  <div style="color: gray; font-size: 16px;">Titel</div>
+			       	  <select name="kategori" id="kategori" class="form-control">
+	                    <option>Tuan</option>
+	                    <option>Nyonya</option>
+	                    <option>Nona</option>
+	                  </select>
+			       	</div>
+			       	<div class="col-9">
+			       		<div style="color: gray; font-size: 16px;">Nama Lengkap</div>
+			       		<input class="form-control" type="text" placeholder="cth. Andre Gunawan" style="font-size: 14px; width: 90%;">
+			       		<small id="namalengkapHelp" class="form-text text-muted">Isi sesuai KTP/Paspor/SIM(tanpa tanda baca & gelar)</small>
+			      	</div>
+			      	<div class="col-12 mt-3">
+			      	  <div style="color: gray; font-size: 16px;">Kewarganegaraan</div>
+			       	  <select name="kategori" id="kategori" class="form-control" style="width: 92.5%">
+	                    <option>Indonesia</option>
+	                    <option>Singapore</option>
+	                    <option>Malaysia</option>
+	                    <option>Vietnam</option>
+	                    <option>Brunei Darussalam</option>
+	                  </select>
+			      	</div>
+			      	<div class="col-12 mt-3">
+			      	  	<div style="color: gray; font-size: 16px;">Tanggal Lahir</div>
+			      	  	<div class="row">
+			      	  		<div class="col-4 form-row">
+				       	  		<input class="form-control" type="text" name="" placeholder="Tanggal" style="width: 80%;">
+				       	  	</div>
+				       	  	<div class="col-4">
+				       	  		<input class="form-control" type="text" name="" placeholder="Bulan" style="width: 80%;">
+				       	  	</div>
+				       	  	<div class="col-4">
+				       	  		<input class="form-control" type="text" name="" placeholder="Tahun" style="width: 80%;">
+				       	  	</div>
+			       		</div>
+			      	</div>
+			  	</div>
+			  </div>
+			  <hr class="light my-8">
+			  <div class="row ml-3 mr-3 mb-4">
+			  	<div class="col-12">
+			  		<h4>
+						Bagasi Pergi
+					</h4>
+				  	<div class="card" style="min-height: 125px; width: 100%">
+				  		<div style="color: gray;" class="mt-3 ml-3">{{s.place_from_id.city.name}} ({{s.place_from_id.city.code_name}}) &#8594; {{s.place_destination_id.city.name}} ({{s.place_destination_id.city.code_name}})</div>
+				  		<div class="card-body">
+				  			<select name="kategori" id="kategori" class="form-control" style="width: 100%">
+			                    <option>15 Kg (+IDR 0,00)</option>
+			                    <option>> 15 Kg (+IDR 20.000,00)</option>
+			                </select>
+				  		</div>
+				  	</div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="mt-3" align="right">
+				<button class="btn" style="color: white; background-color: orange;">Lanjutkan ke Pembayaran</button>
+			</div>
+		</div>
+		<div class="col-5">
+			<h4 class="section-heading">Detail Harga</h4>
+    		<!-- <hr class="light my-8"> -->
+
+	    	<div class="card" style="width: 100%;">
+			  	<div style="font-size: 20px;" class="mt-3 ml-4">
+			  		Keberangkatan
+			  	</div>
+			  	<hr class="light my-8">
+			  	<div class="ml-4">
+				  	<h5 class="mt-3">
+				  		Lion Air (SUB - SRI)
+				  	</h5>
+				</div>
+			    <div class="card-body" >
+				  	<div class="row">
+				  		<div class="col-6" style="font-size: 16px;">
+				  			Dewasa x 1
+				  		</div>
+				  		<div class="col-6" align="right">
+				  			{{s.cost_currency_format}}
+				  		</div>
+
+				  		<div class="col-6">
+				  			Asuransi Jiwa
+				  		</div>
+				  		<div class="col-6" align="right">
+				  			IDR 0
+				  		</div>
+
+				  		<div class="col-6">
+				  			Layanan
+				  		</div>
+				  		<div class="col-6" align="right" style="color: blue;">
+				  			GRATIS
+				  		</div>
+				  	</div>
+					<hr class="light my-8">
+					<div class="row">
+						<div class="col-6">
+							<div style="font-size: 18px; font-weight: bold;">Total Pembayaran</div>
+						</div>
+						<div class="col-6" align="right">
+							<div style="color: orange; font-size: 18px; font-weight: bold;">{{s.cost_currency_format}}</div>
+						</div>
+					</div>
+			    </div>
+
+			</div>
 			<h4 class="section-heading mt-5">Detail Transportasi</h4>
     		<!-- <hr class="light my-8"> -->
 
 	    	<div class="card">
 			  <div style="font-size: 20px;" class="row ml-4 mt-3">
-			  	<div class="col-2">
+			  	<div class="col-3">
 			  		<img style="width: 100%; object-fit: cover;" src="{{s.transportation_id.logo}}">
 			  	</div>
-			  	<div class="col-10 mt-auto mb-auto">
+			  	<div class="col-9 mt-auto mb-auto">
 			  		{{s.transportation_id.name}}
 			  	</div>
 			  </div>
@@ -53,9 +326,9 @@
 			  		<div class="col-12 mx-auto">
 			  			<img src="{{s.transportation_id.image}}" style="width: 100%; object-fit: cover;">
 			  		</div>
-				  	<div class="col-12 ml-3 mr-3 mt-4">
+				  	<div class="col-12 ml-3 mt-4">
 					  	<h6 style="color:#808080;"> Deskripsi </h6>
-					  	<p>{{s.transportation_id.description}}</p>
+					  	<p class="mr-4">{{s.transportation_id.description}}</p>
 				  	</div>
 				  	<div class="col-6 mt-4">
 				  		<div class="" align="center">
@@ -82,62 +355,9 @@
 			  	</div>
 			  </div>
 			</div>
-
+		</div>
 			{% endfor %}
-
-			
-
-		</div>
-		<div class="col-5">
-			<h4 class="section-heading">Detail Harga</h4>
-    		<!-- <hr class="light my-8"> -->
-
-	    	<div class="card" style="width: 100%;">
-			  	<div style="font-size: 20px;" class="mt-3 ml-4">
-			  		Keberangkatan
-			  	</div>
-			  	<hr class="light my-8">
-			  	<div class="ml-4">
-				  	<h5 class="mt-3">
-				  		Lion Air (SUB - SRI)
-				  	</h5>
-				</div>
-			    <div class="card-body" >
-				  	<div class="row">
-				  		<div class="col-6" style="font-size: 16px;">
-				  			Dewasa x 1
-				  		</div>
-				  		<div class="col-6" align="right">
-				  			IDR 684.000
-				  		</div>
-
-				  		<div class="col-6">
-				  			Asuransi Jiwa
-				  		</div>
-				  		<div class="col-6" align="right">
-				  			IDR 0
-				  		</div>
-
-				  		<div class="col-6">
-				  			Layanan
-				  		</div>
-				  		<div class="col-6" align="right" style="color: blue;">
-				  			GRATIS
-				  		</div>
-				  	</div>
-					<hr class="light my-8">
-					<div class="row">
-						<div class="col-6">
-							<div style="font-size: 18px; font-weight: bold;">Total Pembayaran</div>
-						</div>
-						<div class="col-6" align="right">
-							<div style="color: orange; font-size: 18px; font-weight: bold;">IDR 684.000</div>
-						</div>
-					</div>
-			    </div>
-
-			</div>
-		</div>
+		
 	</div>
 </section>
 {% endblock %}
