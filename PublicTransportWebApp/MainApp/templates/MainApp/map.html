@@ -9,54 +9,99 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkXET2qeGgLJOS6BR23VZLIgalJk4zxDo"></script>
 
   <style type="text/css">
-   body{
-    background-color: #2a2b2d; 
-    color:#e6e9ef; 
-    font: arial;
-    text-decoration: none;
-  }
+
   #map 
   {
     height: 60%;
   }
-  </style>
+    body {
+        font: arial;
+        text-decoration: none;
+        margin:0;
+        padding:0;
+        height:100%;
+    }
+    a{
+      color: black;
+    }
+
+    /***** HOME CONTENT *****/
   
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-  <a class="navbar-brand" href="/">IMK</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="map.html">Map</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Services</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Login
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <form id="login">
-              <div class="container">
-              <form action =  method = "post">
-              Username:<br> <input type="text" class="form-control" name="username"><br>
-              Password:<br> <input type="password" class="form-control" name="password"><br>
-              <input type="submit" style="color:white;" class="btn btn-block btn-success" name="login" value ="Login"><br>
-              <div class="bottom text-center">
-              New here ? <a href=" "><b>Join Us</b></a>
-              </div>
-              </div>
-          </form>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
-</nav>
+    .header
+    {
+      text-decoration-style: none;
+    }
+    span{
+        font-size:15px;
+    }
+    .box{
+        padding:60px 0px;
+
+        background-color: #2a2b2d;
+    }
+    .box-part{
+        background:#FFF;
+        border-radius:0;
+        padding:60px 10px;
+        margin:30px 0px;
+    }
+    .text{
+        margin:20px 0px;
+    }
+
+    .fa{
+         color:#ffffff;
+    }
+    .card-img-top {
+        width: 100%;
+        height: 10vw;
+        object-fit: cover;
+    }
+    .c_image_size{
+      width: 100%;
+      height: 600px;
+    }
+  </style>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #599ff9;">
+        <div class="container">
+          <a class="navbar-brand" href="/">IMK</a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+
+                <li class="nav-item">
+                  <a class="nav-link" href="/map/">Map</a>
+                </li>
+
+                <li class="nav-item dropdown" style="margin-left: 900px;">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Login
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <form id="login">
+                          <div class="container" style="width: 300px">
+                          <form action =  method = "post">
+                          Username:<br> <input type="text" class="form-control" name="username"><br>
+                          Password:<br> <input type="password" class="form-control" name="password"><br>
+                          <input type="submit" style="background-color: #599ff9;" class="btn btn-block" name="login" value ="Login"><br>
+                          <div class="bottom text-center">
+                          New here ? <a href=" "><b>Join Us</b></a>
+                          </div>
+                          </div>
+                      </form>
+                  </div>
+                </li>
+
+              </ul>
+          </div>
+      </div>
+    </nav>
+
   </head>
 <body>
 <div class="container">
@@ -98,34 +143,32 @@
 </div>
 </div>
 </body>
-<footer class="bg-dark page-footer font-small blue pt-4">
-    <div class="container-fluid text-center text-md-left">
+<div id="footer" class="page-footer font-small blue pt-4" style="background-color: #599ff9;">
+  <div class="container-fluid text-center text-md-left">
       <div class="container">
-      <div class="row">
-        <div class="col-md-6 mt-md-0 mt-3">
-          <h5 class="text-uppercase">About Us</h5>
-          <p>Menjawab Kebutuhan Transportasi Anda: Angkot, Bus, Kereta. Banyak Pilihan Pembayaran. Aman & Terpercaya. Dilindungi Asuransi. Tarif Tetap. Pengemudi Terlatih.</p>
-        </div>
-
-
-      
-        <div class="col-md-6">
-            <h5 class="text-uppercase">Contacs</h5>
-            <ul class="list-unstyled">
-              <li>
-                <a>Email </a>
-              </li>
-              <li>
-                <a>Telephone</a>
-              </li>
-            </ul>
+          <div class="row" style="color: white;">
+          <div class="col-6 mt-md-0 mt-3">
+              <h5 class="text-uppercase">Tentang Kami</h5>
+              <p>Menjawab Kebutuhan Transportasi anda, Banyak pilihan, Aman & Terpercaya. Kami juga menyediakan promo-promo yang dapat membuat harga perjalanan anda lebih hemat.</p>
           </div>
-    
+
+          <div class="col-6">
+              <h5 class="text-uppercase">Hubungi Kami</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <a>Email: enterprice@gmail.com</a>
+                </li>
+                <li>
+                  <a>Telephone: 0541-6548129426</a>
+                </li>
+              </ul>
+          </div>
+      
+          </div>
+      </div>
+      <div class="footer-copyright text-center py-3"style="color: white;">© 2018 Copyright:
+        Enterprise team.
       </div>
     </div>
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="">IMK</a>
-    </div>
-  </div>
-  </footer>
+</div>
 </html>
