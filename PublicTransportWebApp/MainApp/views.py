@@ -14,6 +14,9 @@ def home(request):
     }
     return render(request, "MainApp/home.html",categories_dictionary)
 
+def profile(request):
+    return render(request, "MainApp/profile.html")
+
 def map(request):
     return render(request, "MainApp/map.html")
 

@@ -222,15 +222,15 @@
 			      	</div>
 			      	<div class="col-12 mt-3">
 			      	  	<div style="color: gray; font-size: 16px;">Tanggal Lahir</div>
-			      	  	<div class="row">
-			      	  		<div class="col-4 form-row">
-				       	  		<input class="form-control" type="text" name="" placeholder="Tanggal" style="width: 80%;">
+			      	  	<div class="form row">
+			      	  		<div class="col-4">
+				       	  		<input class="form-control" type="text" name="" placeholder="Tanggal" style="width: 100%;">
 				       	  	</div>
 				       	  	<div class="col-4">
-				       	  		<input class="form-control" type="text" name="" placeholder="Bulan" style="width: 80%;">
+				       	  		<input class="form-control" type="text" name="" placeholder="Bulan" style="width: 100%;">
 				       	  	</div>
 				       	  	<div class="col-4">
-				       	  		<input class="form-control" type="text" name="" placeholder="Tahun" style="width: 80%;">
+				       	  		<input class="form-control" type="text" name="" placeholder="Tahun" style="width: 75%;">
 				       	  	</div>
 			       		</div>
 			      	</div>
@@ -256,7 +256,50 @@
 			</div>
 
 			<div class="mt-3" align="right">
-				<button class="btn" style="color: white; background-color: orange;">Lanjutkan ke Pembayaran</button>
+				<!-- <button class="btn" style="color: white; background-color: orange;">Lanjutkan ke Pembayaran</button> -->
+				<button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter" style="color: white; background-color: orange;">
+				  Lanjutkan ke Pembayaran
+				</button>
+
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLongTitle">Pembayaran</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        <div class="container-fluid" style="">
+					        <div class="row">
+					          	<div class=" mx-auto" style="width:80%; text-align: center;">
+					            	<h2 class="section-heading">Pembayaran</h2>
+					            	<p style="font-size: 20px;">Pembayaran dapat dilakukan melalui Transfer ke virtual account maupun melalui mini market terdekat dengan menunjukkan nomor transaksi</p><br>
+					            	<div class="light my-8 mb-4" >
+					            		<h2>Nomor Transaksi</h2>
+									 	<input type="text" class="form-control" value="65156421622648065" id="usr" disabled style="text-align: center; font-size: 20px;"><br>
+					            		<h2>Masukkan Harga Sesuai Total</h2>
+									 	<input type="text" class="form-control" value="556000" id="usr" disabled style="text-align: center; font-size: 20px;"><br>
+									 	<h2>Transfer Ke Rekening</h2>
+									 	<input type="text" value="999-1235-45616" class="form-control" id="usr" disabled style="text-align: center; font-size: 20px;"><br>
+									 	<br>
+									 	<h2>Upload Bukti Transfer</h2>
+									 	<input class="" type="file"><br>
+									 	<p>Upload 📷 Bukti Diatas!</p>
+									</div>
+					            </div>
+					        </div>
+						</div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 			</div>
 		</div>
 		<div class="col-5">

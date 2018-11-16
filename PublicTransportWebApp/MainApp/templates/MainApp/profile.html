@@ -1,0 +1,270 @@
+{% extends "MainApp/header.html" %}
+
+{% block content %}
+
+<style type="text/css">
+	.card {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: rgba(214, 224, 226, 0.2);
+    -webkit-border-top-left-radius:5px;
+    -moz-border-top-left-radius:5px;
+    border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
+}
+.card.hovercard .card-background {
+    height: 130px;
+}
+.card-background img {
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
+}
+.card.hovercard .useravatar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .useravatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.card.hovercard .card-info {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .card-info .card-title {
+    padding:0 5px;
+    font-size: 20px;
+    line-height: 1;
+    color: #262626;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.card.hovercard .card-info {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+.btn-pref .btn {
+    -webkit-border-radius:0 !important;
+}
+</style>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="col-12">
+	<div class="card hovercard">
+	    <div class="card-background">
+	        <img class="card-bkimg" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Cloud%2C_blue_background.svg/1280px-Cloud%2C_blue_background.svg.png">
+	    </div>
+	    <div class="useravatar">
+	        <img alt="" src="https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1-744x744.jpg">
+	    </div>
+	    <div class="card-info"> <span class="card-title">Firstname Lastname</span>
+
+	    </div>
+	</div>
+	<div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+	    <div class="btn-group" role="group">
+	        <button type="button" id="points" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	            <div class="hidden-xs">Promo Points</div>
+	        </button>
+	    </div>
+	    <div class="btn-group" role="group">
+	        <button type="button" id="bookmark" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+	            <div class="hidden-xs">bookmark</div>
+	        </button>
+	    </div>
+	    <div class="btn-group" role="group">
+	        <button type="button" id="history" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+	            <div class="hidden-xs">history</div>
+	        </button>
+	    </div>
+	</div>
+
+	<div class="well">
+	  <div class="tab-content">
+	    <div class="tab-pane fade in active" id="tab1">
+			<div class="container-fluid" style="min-height:100%; padding-top: 5%;">
+			    <div class="row">
+		          	<div class=" mx-auto" style="width:80%;">
+		            	<h2 class="section-heading">Daftar Pembelian Lalu</h2>
+		            	<div class="light my-8 mb-4" >
+						 	<table class="table table-striped table-bordered table-list">
+						    <thead>
+						        <tr>
+						            <th>ID</th>
+						            <th onclick="">Tanggal Pembelian</th>
+						            <th>Kendaraan</th>
+						            <th>Harga</th>
+						            <th></th>
+						        </tr>
+						    </thead>
+						    <tbody>
+						            <tr>
+						                <td>1</td>
+						                <td>10 Nov 2018</td>
+						                <td> <i class="fa fa-plane" style="font-size:24px; color:black;"></i> Lion Air QZ-234</td>
+						                <td>456000</td>
+						                <td class="text-center"><a href="#" class="btn btn-success btn-xs">Details</a></td>
+						            </tr>
+						            <tr>
+						                <td>2</td>
+						                <td>5 Aug 2018</td>
+						                <td> <i class="fa fa-cab" style="font-size:24px; color:black;"></i> Taksi Blue Bird</td>
+						                <td>84000</td>
+						                <td class="text-center"><a href="#" class="btn btn-success btn-xs">Details</a></td>
+						            </tr>
+						            <tr>
+						                <td>3</td>
+						                <td>18 Jan 2018</td>
+						                <td> <i class="fa fa-bus" style="font-size:24px; color:black;"></i> Bus Tayo</td>
+						                <td>140000</td>
+						                <td class="text-center"><a href="#" class="btn btn-success btn-xs">Details</a></td>
+						            </tr>
+						    </tbody>
+						    </table>
+						</div>
+			        </div>
+			    </div>
+			</div>
+	    </div>
+	    <div class="tab-pane fade in" id="tab2">
+	      <h3>This is tab 2</h3>
+	    </div>
+	    <div class="tab-pane fade in" id="tab3">
+	      <h3>This is tab 33333</h3>
+	    </div>
+	  </div>
+	</div>
+
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+$(".btn-pref .btn").click(function () {
+    $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+    // $(".tab").addClass("active"); // instead of this do the below 
+    $(this).removeClass("btn-default").addClass("btn-primary");   
+});
+});
+</script>     
+
+<!-- CONTENT -->
+	<div class="container-fluid" style="min-height:100%; padding-top: 5%;">
+	    <div class="row">
+          	<div class=" mx-auto" style="width:80%;">
+            	<h2 class="section-heading">Daftar Pembelian Lalu</h2>
+            	<div class="light my-8 mb-4" >
+				 	<table class="table table-striped table-bordered table-list">
+				    <thead>
+				        <tr>
+				            <th>ID</th>
+				            <th onclick="">Tanggal Pembelian</th>
+				            <th>Kendaraan</th>
+				            <th>Harga</th>
+				            <th></th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				            <tr>
+				                <td>1</td>
+				                <td>10 Nov 2018</td>
+				                <td> <i class="fa fa-plane" style="font-size:24px; color:black;"></i> Lion Air QZ-234</td>
+				                <td>456000</td>
+				                <td class="text-center"><a href="#" class="btn btn-success btn-xs">Details</a></td>
+				            </tr>
+				            <tr>
+				                <td>2</td>
+				                <td>5 Aug 2018</td>
+				                <td> <i class="fa fa-cab" style="font-size:24px; color:black;"></i> Taksi Blue Bird</td>
+				                <td>84000</td>
+				                <td class="text-center"><a href="#" class="btn btn-success btn-xs">Details</a></td>
+				            </tr>
+				            <tr>
+				                <td>3</td>
+				                <td>18 Jan 2018</td>
+				                <td> <i class="fa fa-bus" style="font-size:24px; color:black;"></i> Bus Tayo</td>
+				                <td>140000</td>
+				                <td class="text-center"><a href="#" class="btn btn-success btn-xs">Details</a></td>
+				            </tr>
+				    </tbody>
+				    </table>
+				</div>
+	        </div>
+	    </div>
+	</div>
+
+{% endblock %}
+
+{% block footer %}
+<!-- FOOTER -->
+{% load staticfiles %}
+<div id="footer" class="page-footer font-small blue pt-4" style="background-color: #599ff9;">
+	<div class="container-fluid text-center text-md-left">
+	    <div class="container">
+	        <div class="row" style="color: white;">
+	        <div class="col-6 mt-md-0 mt-3">
+	            <h5 class="text-uppercase">Tentang Kami</h5>
+	            <p>Menjawab Kebutuhan Transportasi anda, Banyak pilihan, Aman & Terpercaya. Kami juga menyediakan promo-promo yang dapat membuat harga perjalanan anda lebih hemat.</p>
+	        </div>
+
+	        <div class="col-6">
+	            <h5 class="text-uppercase">Hubungi Kami</h5>
+	            <ul class="list-unstyled">
+	              <li>
+	                <a>Email: enterprice@gmail.com</a>
+	              </li>
+	              <li>
+	                <a>Telephone: 0541-6548129426</a>
+	              </li>
+	            </ul>
+	        </div>
+	    
+	        </div>
+	    </div>
+	    <div class="footer-copyright text-center py-3"style="color: white;">© 2018 Copyright:
+	      Enterprise team.
+	    </div>
+  	</div>
+</div>
+<!-- FOOTER END -->
+{% endblock %}
