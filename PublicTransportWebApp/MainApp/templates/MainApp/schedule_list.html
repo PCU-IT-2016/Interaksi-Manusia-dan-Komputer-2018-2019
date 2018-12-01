@@ -168,7 +168,15 @@
 			    </div>
 			    <div id="collapseOne" class="collapsed" aria-labelledby="headingOne" data-parent="#accordionExample1">
 			      <div class="card-body">
-			        TEST COLLAPSE
+			        <div class="radio">
+					  <label><input type="radio" name="optradio1" checked> 06.00 - 12.00</label>
+					</div>
+					<div class="radio">
+					  <label><input type="radio" name="optradio1"> 12.00 - 18.00</label>
+					</div>
+					<div class="radio">
+					  <label><input type="radio" name="optradio1"> 18.00 - 21.00</label>
+					</div>
 			      </div>
 			    </div>
 			</div>
@@ -182,7 +190,15 @@
 			    </div>
 			    <div id="collapseTwo" class="collapsed" aria-labelledby="headingTwo" data-parent="#accordionExample2">
 			      <div class="card-body">
-			        TEST COLLAPSE
+			        <div class="radio">
+					  <label><input type="radio" name="optradio2" checked> IDR 100.000 - IDR 300.000</label>
+					</div>
+					<div class="radio">
+					  <label><input type="radio" name="optradio2"> IDR 300.000 - IDR 500.000</label>
+					</div>
+					<div class="radio">
+					  <label><input type="radio" name="optradio2"> IDR 500.000 - IDR 900.000</label>
+					</div>
 			      </div>
 			    </div>
 			</div>
@@ -260,6 +276,9 @@
 					    </li>
 					    <li class="nav-item">
 					      <a class="nav-link" data-toggle="tab" href="#detail_harga{{schedule.id}}">Detail Harga</a>
+					    </li>
+					    <li class="nav-item">
+					      <a class="nav-link" data-toggle="tab" href="#detail_transport{{schedule.id}}">Detail Transportasi</a>
 					    </li>
 					  </ul>
 					    
@@ -369,6 +388,54 @@
 				         </div>
 				      </div>
 				    </div>
+				    <div id="detail_transport{{schedule.id}}" class="tab-pane fade">
+				    	<!-- <h4 class="section-heading mt-5">Detail Transportasi</h4> -->
+				    	<div class="card">
+						  <div style="font-size: 20px;" class="row ml-4 mt-3">
+						  	<div class="col-2">
+						  		<img style="width: 100%; object-fit: cover;" src="{{schedule.transportation_id.logo}}">
+						  	</div>
+						  	<div class="col-10 mt-auto mb-auto">
+						  		{{schedule.transportation_id.name}}
+						  	</div>
+						  </div>
+						  <hr class="light my-8">
+						  <div class="card-body" >
+						  	<div class="row">
+						  		<div class="col-12 mx-auto">
+						  			<img src="{{schedule.transportation_id.image}}" style="width: 100%; object-fit: cover;">
+						  		</div>
+							  	<div class="col-12 ml-3 mt-4">
+								  	<h6 style="color:#808080;"> Deskripsi </h6>
+								  	<p class="mr-4">{{schedule.transportation_id.description}}</p>
+							  	</div>
+							  	<div class="col-6 mt-4">
+							  		<div class="" align="center">
+							  			<img src="https://citilinkstorage.blob.core.windows.net/citilink/images/default-source/Fleet-Images/ico2.png">
+							  			<div style="color: gray; font-size: 12px;" class="mt-2">Kecepatan</div>
+							  			<h5 style="color: green;">{{schedule.transportation_id.speed}}.00km/h</h5>
+							  		</div>
+							  	</div>
+							  	<div class="col-6 mt-4">
+							  		<div class="" align="center">
+							  			<img src="https://citilinkstorage.blob.core.windows.net/citilink/images/default-source/Fleet-Images/ico4.png" class="ml-auto mr-auto">
+
+							  			<div style="color: gray; font-size: 12px;" class="mt-2">Kapasitas Bahan Bakar</div>
+							  			<h5 style="color: green;">24.210 liter</h5>
+							  		</div>
+							  	</div>
+							  	<div class="col-12 mt-4">
+							  		<div class="" align="center">
+							  			<img src="https://citilinkstorage.blob.core.windows.net/citilink/images/default-source/Fleet-Images/ico6.png" style="height: 100%;">
+							  			<div style="color: gray; font-size: 12px;" class="mt-2">Menampung Hingga</div>
+							  			<h5 style="color: green;">{{schedule.transportation_id.capacity}} Passangers</h5>
+							  		</div>
+							  	</div>
+						  	</div>
+						  </div>
+						</div>
+				    </div>
+
 				 	 </div>
 				    </div>
 					</div>

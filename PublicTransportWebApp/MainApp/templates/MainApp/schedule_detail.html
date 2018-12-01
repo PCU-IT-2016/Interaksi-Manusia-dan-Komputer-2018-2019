@@ -256,7 +256,7 @@
 			</div>
 
 			<div class="mt-3" align="right">
-				<!-- <button class="btn" style="color: white; background-color: orange;">Lanjutkan ke Pembayaran</button> -->
+				<a class="btn btn-primary" style="color: white;" href="/schedule_list/{{s.transportation_id.category_id.id}}">Kembali ke Pencarian</a>
 				<button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter" style="color: white; background-color: orange;">
 				  Lanjutkan ke Pembayaran
 				</button>
@@ -281,7 +281,7 @@
 					            		<h2>Nomor Transaksi</h2>
 									 	<input type="text" class="form-control" value="65156421622648065" id="usr" disabled style="text-align: center; font-size: 20px;"><br>
 					            		<h2>Masukkan Harga Sesuai Total</h2>
-									 	<input type="text" class="form-control" value="556000" id="usr" disabled style="text-align: center; font-size: 20px;"><br>
+									 	<input type="text" class="form-control" value="{{s.cost_currency_format}}" id="usr" disabled style="text-align: center; font-size: 20px;"><br>
 									 	<h2>Transfer Ke Rekening</h2>
 									 	<input type="text" value="999-1235-45616" class="form-control" id="usr" disabled style="text-align: center; font-size: 20px;"><br>
 									 	<br>
@@ -313,7 +313,7 @@
 			  	<hr class="light my-8">
 			  	<div class="ml-4">
 				  	<h5 class="mt-3">
-				  		Lion Air (SUB - SRI)
+				  		{{s.transportation_id.name}} (SUB - SRI)
 				  	</h5>
 				</div>
 			    <div class="card-body" >
@@ -351,8 +351,8 @@
 			    </div>
 
 			</div>
-			<h4 class="section-heading mt-5">Detail Transportasi</h4>
-    		<!-- <hr class="light my-8"> -->
+			<!-- <h4 class="section-heading mt-5">Detail Transportasi</h4>
+    		
 
 	    	<div class="card">
 			  <div style="font-size: 20px;" class="row ml-4 mt-3">
@@ -397,7 +397,7 @@
 				  	</div>
 			  	</div>
 			  </div>
-			</div>
+			</div> -->
 		</div>
 			{% endfor %}
 		
