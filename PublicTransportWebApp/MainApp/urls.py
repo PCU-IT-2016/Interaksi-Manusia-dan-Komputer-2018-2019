@@ -13,5 +13,6 @@ urlpatterns = [
     url(r"^new_home/", views.new_home, name="new_home"),
     url(r"^map/", views.map, name="new_home"),
     url(r"^register/", views.register_form, name="register_form"),
-    url(r"profile/", views.profile, name="profile")
+    url(r"profile/", views.profile, name="profile"),
+    url(r"logged/", views.home_logged, name="logged")
 ]

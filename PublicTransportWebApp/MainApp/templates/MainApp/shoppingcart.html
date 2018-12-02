@@ -17,6 +17,14 @@
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.2/css/all.css' integrity='sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns' crossorigin='anonymous'>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 	<style type="text/css">
 		html,
 		body {
@@ -29,14 +37,8 @@
 		a{
 			color: black;
 		}
-		.navbar-brand
-		{
-			margin: auto;
-	   		width: 85%;
-		}
-
+		
 		/***** HOME CONTENT *****/
-	
 		.header
 		{
 			text-decoration-style: none;
@@ -46,7 +48,6 @@
 		}
 		.box{
 		    padding:60px 0px;
-
 		    background-color: #2a2b2d;
 		}
 		.box-part{
@@ -71,6 +72,52 @@
 			width: 100%;
 			height: 600px;
 		}
+		.navbar-brand
+		{
+			margin: auto;
+	   		width: 85%;
+		}
+
+		.news {
+		  position: relative;
+		  width: 100%;
+		  height: width: 100%;
+		}
+
+		.image {
+		  width: 100%;
+		  height: 50%;
+		}
+
+		.overlay {
+		  position: absolute;
+		  bottom: 0;
+		  height: 50%;
+		  width: 100%;
+		  opacity: 0;
+		  transition: .5s ease;
+		  background-color:  #599ff9;
+		}
+
+		.news:hover .overlay {
+		  opacity: 1;
+		}
+
+		.desc{
+			color: white;
+			background-color: #599ff9;
+		}
+
+		.newsdesc {
+		  color: white;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  -webkit-transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		  transform: translate(-50%, -50%);
+		  text-align: center;
+		}
 	</style>
 </head>
 
@@ -79,7 +126,7 @@
 	<div class="header">
 		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #599ff9;">
 		    <div class="container">
-			    <a class="navbar-brand" href="/">IMK</a>
+			    <a class="navbar-brand text-white" href="/" style="font-size: 32px;font-family: Copperplate Gothic;font-weight: bold;">Enterprise</a>
 
 			    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			    	<span class="navbar-toggler-icon"></span>
@@ -91,7 +138,6 @@
 				        <li class="nav-item">
 				        	<a class="nav-link" href="/map/">Map</a>
 				        </li>
-
 				      
 				        <li class="nav-item dropdown">
 				        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -126,67 +172,18 @@
 	</div>
 
 	<!-- CONTENT -->
-	<div class="container-fluid">
-	  <div class="container"> 
-
-	  	<div class ="container" style="margin-top: 40px;">
-	  		 
-		        <div class="row">
-		          <div class="col-rg-4 mx-auto text-center">
-		             <div class="header">
-					    <a href="#">Cars</a>
-					 </div>
-		          </div>
-		           <div class="col-rg-4 mx-auto text-center">
-		             <div class="header">
-					    <a href="#">Planes</a>
-					 </div>
-		          </div>
-		           <div class="col-rg-4 mx-auto text-center">
-		             <div class="header">
-					    <a href="#">Trains</a>
-					 </div>
-		          </div>
-		        </div>
-		  
+	<div style="margin-bottom: 64px;" class="bg-light">
+	
+	    <div class="container">
+	    	{% block content %}
+	    	{% endblock %}
 		</div>
 
-
-
-	   
-	  </div>
 	</div>
 
-	<!-- FOOTER -->
-	<div id="footer" class="page-footer font-small blue pt-4" style="background-color: #599ff9;">
-		<div class="container-fluid text-center text-md-left">
-		    <div class="container">
-		        <div class="row">
-		        <div class="col-md-6 mt-md-0 mt-3">
-		            <h5 class="text-uppercase">About Us</h5>
-		            <p>Answering your Transportation Needs: Bus, Train, Plane. Many Choices, Safe & Trusted. We also offer the Best Prices.</p>
-		        </div>
+	{% block footer %}
+	{% endblock %}
 
-		        <div class="col-md-6">
-		            <h5 class="text-uppercase">Contacs</h5>
-		            <ul class="list-unstyled">
-		              <li>
-		                <a>Email </a>
-		              </li>
-		              <li>
-		                <a>Telephone</a>
-		              </li>
-		            </ul>
-		        </div>
-		    
-		        </div>
-		    </div>
-		    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-		      <a href="">IMK</a>
-		    </div>
-	  	</div>
-	</div>
-	<!-- FOOTER END -->
 </body>
 
 </html>
