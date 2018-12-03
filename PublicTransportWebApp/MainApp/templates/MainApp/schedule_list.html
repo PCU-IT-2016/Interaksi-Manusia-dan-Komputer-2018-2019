@@ -159,7 +159,7 @@
 	<div class="row">
 		<div class="col-3">
 			<div class="accordion card" id="accordionExample1">
-			    <div class="card" id="headingOne">
+			    <div class="card-header" id="headingOne">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="text-decoration: none;width: 100%; height: 100%; color:black;">
 			          Waktu
@@ -181,7 +181,7 @@
 			    </div>
 			</div>
 			<div class="accordion card" id="accordionExample2">
-			    <div class="card" id="headingTwo">
+			    <div class="card-header" id="headingTwo">
 			      <h5 class="mb-0">
 			        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collpaseTwo" style="text-decoration: none;width: 100%; height: 100%; color:black;">
 			          Harga
@@ -216,15 +216,16 @@
 				        	<div class="col-11 mt-3 mb-3">
 					        	<a style="width: 100%; text-decoration: none;color: black;" href="/schedule_detail/{{schedule.id}}">
 							        <div id="collapseHead{{schedule.id}}" class="row mx-auto">
-							        	<div class="col-1">
+							        	<div class="col-1 mt-auto mb-auto">
 							        		<img class="logo-icon" src="{{schedule.transportation_id.logo}}">
 							        	</div>
 								        <div id="kolom2-{{schedule.id}}" class="col-3">
 								            <div align="left" style="font-size: 18px">{{schedule.transportation_id.name}}</div>
-								            <h6 id="fromto{{schedule.id}}" align="left" style="font-size: 18px">{{schedule.place_from_id.city.code_name}}<i class='fas fa-arrow-right' style='font-size:18px'></i>  {{schedule.place_destination_id.city.code_name}}</h6>
+								            <h6 id="fromto{{schedule.id}}" align="left" style="font-size: 16px">({{schedule.place_from_id.city.code_name}}) &#8594;  ({{schedule.place_destination_id.city.code_name}})</h6>
 								        </div>
 								        <div id="kolom3-{{schedule.id}}"class="col-4">
-								           <div align="left" style="font-weight: bold;">{{schedule.date_time}} </div>
+								           <div align="left" style="font-weight: bold;">{{schedule.date_time.day}}-{{schedule.date_time.month}}-{{schedule.date_time.year}} 
+							    			{{schedule.date_time.hour}}:{{schedule.date_time.minute}} </div>
 								           <div align="left">Langsung</div>
 								        </div>
 								        <div id="harga{{schedule.id}}" class="col-4 mt-3" align="right">
@@ -247,8 +248,8 @@
 								harga_tag.removeClass("col-3").addClass("col-4");
 								$('#btn{{schedule.id}}').remove();
 								$('#kolom3-{{schedule.id}}').show();
-								$('#fromto{{schedule.id}}').css("font-size", "18px");
-								$('#fromto{{schedule.id}}').html("{{schedule.place_from_id.city.code_name}}<i class='fas fa-arrow-right' style='font-size:18px'></i>  {{schedule.place_destination_id.city.code_name}}");
+								$('#fromto{{schedule.id}}').css("font-size", "16px");
+								$('#fromto{{schedule.id}}').html("({{schedule.place_from_id.city.code_name}}) &#8594;  ({{schedule.place_destination_id.city.code_name}})");
 								$('#harga{{schedule.id}}').removeClass("mt-4").addClass("mt-3");
 							});
 							$('#clps{{schedule.id}}').on('show.bs.collapse', function() {
@@ -258,7 +259,7 @@
 								// kolom3.remove();
 								kolom3.hide();
 								$('#collapseHead{{schedule.id}}').append("<a href='/schedule_detail/{{schedule.id}}' id='btn{{schedule.id}}' style='color: white;background-color: orange; height: 75%; width:100%;' align='right' class='btn btn-link col-4 mt-3'>Pilih Barang</a>");
-								$('#fromto{{schedule.id}}').html("Berangkat<br>{{schedule.date_time}}");
+								$('#fromto{{schedule.id}}').html("Berangkat pada<br>{{schedule.date_time.day}}-{{schedule.date_time.month}}-{{schedule.date_time.year}} {{schedule.date_time.hour}}:{{schedule.date_time.minute}}");
 								$('#fromto{{schedule.id}}').css("font-size", "16px");
 								harga_tag.removeClass("mt-3").addClass("mt-4");
 								harga_tag.removeClass("col-4").addClass("col-3");
@@ -286,11 +287,11 @@
 					  <div class="tab-content">
 					    <div id="detail_keberangkatan{{schedule.id}}" class="container-fluid tab-pane active"><br>
 					       <div class="row">
-					       	<div class="col-1">
+					       	<div class="col-2">
 					       		<!-- LOGO -->
 					       		<img class="logo-icon" src="{{schedule.transportation_id.logo}}">
 					       	</div>
-					       	<div class="col-11">
+					       	<div class="col-10">
 					       		<div class="row">
 							        <div class="col-1">
 								        <!-- isi -->
@@ -324,25 +325,25 @@
 								          	</li>
 								        </ul>
 							        </div>
-							        <div class="col-3 mt-md-0 mt-3">
-						          		<div style="font-size: 14px; font-weight: bold;">
-						          			({{schedule.place_from_id.city.code_name}}) {{schedule.place_from_id.nickname}}
+							        <div class="col-7 mt-md-0 mt-3">
+						          		<div style="font-size: 14px; font-weight: bold; margin-left: 6px;">
+						          			 22.15 - ({{schedule.place_from_id.city.code_name}}) {{schedule.place_from_id.nickname}}
+						          			 <div><label class="text-primary">21 Jan</label> Terminal 2F</div>
 						          		</div>
-						          		<div style="font-size: 14px; margin-top: 32px; margin-bottom: 32px;">
-						          			50mnt
+						          		<div style="font-size: 14px; margin-top: 17px; margin-bottom: 17px;margin-left: 6px;">
+						          			1j 50mnt
 						          		</div>
-						          		<div style="font-size: 14px; font-weight: bold;">
-						          			({{schedule.place_destination_id.city.code_name}}) {{schedule.place_destination_id.nickname}}
+						          		<div style="font-size: 14px; font-weight: bold;margin-left: 6px;">
+						          			 01.16 - ({{schedule.place_destination_id.city.code_name}}) {{schedule.place_destination_id.nickname}}
+						          			 <div><label class="text-primary">21 Jan</label> Terminal I</div>
 						          		</div>
 							        </div>
-							        <div class="col-5" align="center">
+							        <!-- <div class="col-5" align="center">
 							        	<div> ({{schedule.place_from_id.city.name}}) {{schedule.place_from_id.nickname}} </div>
 							        	<div>&#8595;</div>
 							        	<div>({{schedule.place_destination_id.city.name}}) {{schedule.place_destination_id.nickname}}</div>
-									    <!-- <div>🕘 <strong>22.15 - 01.16</strong></div> -->
-									    <!-- <div>🛄 <strong>20 Kg</strong></div> -->
-							        </div>
-							        <div class="col-3 mt-md-0 mt-3">
+							        </div> -->
+							        <div class="col-4 mt-md-0 mt-3">
 							          	<div style="color:#808080;"> Detail Barang </div>
 									    <div>🕘 <strong>22.15 - 01.16</strong></div>
 									    <div>🛄 <strong>20 Kg</strong></div>

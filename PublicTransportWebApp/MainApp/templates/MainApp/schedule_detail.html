@@ -128,7 +128,7 @@
 				          			({{s.place_from_id.city.code_name}}) {{s.place_from_id.nickname}}
 				          		</div>
 				          		<div style="font-size: 14px; margin-top: 32px; margin-bottom: 32px;">
-				          			50mnt
+				          			1j 50mnt
 				          		</div>
 				          		<div style="font-size: 14px; font-weight: bold;">
 				          			({{s.place_destination_id.city.code_name}}) {{s.place_destination_id.nickname}}
@@ -140,7 +140,10 @@
 							    <div>🛄 <strong>20 Kg</strong></div>
 
 							    <div class="mt-2" style="color: gray;">Berangkat pada</div>
-							    <strong>{{s.date_time}}</strong>
+							    <strong>
+							    	{{s.date_time.day}}-{{s.date_time.month}}-{{s.date_time.year}} 
+							    	{{s.date_time.hour}}:{{s.date_time.minute}}
+								</strong>
 					        </div>
 				    	</div>
 
@@ -279,7 +282,7 @@
 					            	<p style="font-size: 20px;">Pembayaran dapat dilakukan melalui Transfer ke virtual account maupun melalui mini market terdekat dengan menunjukkan nomor transaksi</p><br>
 					            	<div class="light my-8 mb-4" >
 					            		<h2>Nomor Transaksi</h2>
-									 	<input type="text" class="form-control" value="65156421622648065" id="usr" disabled style="text-align: center; font-size: 20px;"><br>
+									 	<input type="text" class="form-control" value="6515-6421-6226-4806" id="usr" disabled style="text-align: center; font-size: 20px;"><br>
 					            		<h2>Masukkan Harga Sesuai Total</h2>
 									 	<input type="text" class="form-control" value="{{s.cost_currency_format}}" id="usr" disabled style="text-align: center; font-size: 20px;"><br>
 									 	<h2>Transfer Ke Rekening</h2>
