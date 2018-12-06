@@ -103,7 +103,7 @@ def register_form(request):
                 'all_categories' : all_categories,
                 'all_cities'     : all_cities,
             }
-            return render(request, "MainApp/home.html", response_values)
+            return render(request, "MainApp/profile.html", response_values)
 
 def contact(request):
     content = {'content' : ['if you would like to contact me, please mail me at', 'm26416083@john.petra.ac.id']}

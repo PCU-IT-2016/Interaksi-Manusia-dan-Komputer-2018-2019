@@ -1,132 +1,86 @@
 {% extends "MainApp/header.html" %}
 
-{% block content %}
-
+{% block head %}
 <style type="text/css">
-	.card {
-    margin-top: 20px;
-    padding: 30px;
-    background-color: rgba(214, 224, 226, 0.2);
-    -webkit-border-top-left-radius:5px;
-    -moz-border-top-left-radius:5px;
-    border-top-left-radius:5px;
-    -webkit-border-top-right-radius:5px;
-    -moz-border-top-right-radius:5px;
-    border-top-right-radius:5px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-.card.hovercard {
-    position: relative;
-    padding-top: 0;
-    overflow: hidden;
-    text-align: center;
-    background-color: #fff;
-    background-color: rgba(255, 255, 255, 1);
-}
-.card.hovercard .card-background {
-    height: 130px;
-}
-.card-background img {
-    -webkit-filter: blur(25px);
-    -moz-filter: blur(25px);
-    -o-filter: blur(25px);
-    -ms-filter: blur(25px);
-    filter: blur(25px);
-    margin-left: -100px;
-    margin-top: -200px;
-    min-width: 130%;
-}
-.card.hovercard .useravatar {
-    position: absolute;
-    top: 15px;
-    left: 0;
-    right: 0;
-}
-.card.hovercard .useravatar img {
-    width: 100px;
-    height: 100px;
-    max-width: 100px;
-    max-height: 100px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    border: 5px solid rgba(255, 255, 255, 0.5);
-}
-.card.hovercard .card-info {
-    position: absolute;
-    bottom: 14px;
-    left: 0;
-    right: 0;
-}
-.card.hovercard .card-info .card-title {
-    padding:0 5px;
-    font-size: 20px;
-    line-height: 1;
-    color: #262626;
-    background-color: rgba(255, 255, 255, 0.1);
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-}
-.card.hovercard .card-info {
-    overflow: hidden;
-    font-size: 12px;
-    line-height: 20px;
-    color: #737373;
-    text-overflow: ellipsis;
-}
-.card.hovercard .bottom {
-    padding: 0 20px;
-    margin-bottom: 17px;
-}
-.btn-pref .btn {
-    -webkit-border-radius:0 !important;
-}
+	body{
+		height: 100%;
+	}
 </style>
+<div class="header">
+		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #599ff9;">
+		    <div class="container">
+			    <a class="navbar-brand text-white" href="/" style="font-size: 32px;font-family: Copperplate Gothic;font-weight: bold;">Enterprise</a>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+			    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			    	<span class="navbar-toggler-icon"></span>
+			    </button>
 
-<div class="col-12">
-	<div class="card hovercard">
-	    <div class="card-background">
-	        <img class="card-bkimg" alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Cloud%2C_blue_background.svg/1280px-Cloud%2C_blue_background.svg.png">
-	    </div>
-	    <div class="useravatar">
-	        <img alt="" src="https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1-744x744.jpg">
-	    </div>
-	    <div class="card-info"> <span class="card-title">Firstname Lastname</span>
+			    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+			        <ul class="navbar-nav">
 
-	    </div>
+				        <li class="nav-item">
+				        	<a class="nav-link" href="/map/">Map</a>
+				        </li>
+				      
+				        <li class="nav-item dropdown">
+				        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					          	<i class="fa fa-shopping-cart" style="font-size:20px"></i>
+					        </a>
+					        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"  style="width:350px">
+					                <div class="container-fluid" >
+					              		<table class="table table-striped table-bordered table-list">
+									    <tbody>
+									            <tr>
+									            	<td>10 Nov 2018</td>
+									                <td>Lion Air QZ-234</td>
+									                <td class="text-center"><a href="#" class="btn btn-danger btn-xs">X</a></td>
+									                <td class="text-center"><a href="#" class="btn btn-success btn-xs">&#x1f5c9;</a></td>
+									            </tr>
+									            <tr>
+									            	<td>16 Nov 2018</td>
+									                <td>Lion Air QZ-355</td>
+									                <td class="text-center"><a href="detail" class="btn btn-danger btn-xs">X</a></td>
+									                <td class="text-center"><a href="detail" class="btn btn-success btn-xs">&#x1f5c9;</a></td>
+									            </tr>
+									    </tbody>
+									    </table>
+					                </div>
+					        </div>
+				        </li>
+				        <!-- PROFIL -->
+			        </ul>
+			    </div>
+			</div>
+		</nav>
 	</div>
-	<div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
-	    <div class="btn-group" role="group">
-	        <button type="button" id="points" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-	            <div class="hidden-xs">Promo Points</div>
-	        </button>
-	    </div>
-	    <div class="btn-group" role="group">
-	        <!-- <a type="button" id="bookmark" class="btn btn-default" href="/logged/" data-toggle="tab"> -->
-	        <a type="button" id="bookmark" class="btn btn-default" href="/logged/">
-	        	<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
-	            <div class="hidden-xs" href="/logged/">bookmark</div>
-	        </a>
-	    </div>
-	    <div class="btn-group" role="group">
-	        <button type="button" id="history" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-	            <div class="hidden-xs">history</div>
-	        </button>
-	    </div>
-	</div>
 
-	<div class="well">
-	  <div class="tab-content">
-	    <div class="tab-pane fade in active" id="tab1">
-			<div class="container-fluid" style="min-height:100%; padding-top: 5%;">
+{% endblock %}
+
+{% block content %}
+	<style type="text/css">
+		.cont2 {
+			height: 100%;
+			min-height: 766px;
+		}
+	</style>
+	<div class="cont2">
+    <div class="row m-y-2">
+        <div class="col-12 push-lg-4">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="" data-target="#history" data-toggle="tab" class="nav-link">History</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" data-target="#promo" data-toggle="tab" class="nav-link">Promo</a>
+                </li>
+                 <li class="nav-item">
+                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
+                </li>
+            </ul>
+            <div class="tab-content p-b-3">
+               
+                <div class="tab-pane active" id="history">
+                    <div class="container-fluid" style="min-height:100%; padding-top: 5%;">
 			    <div class="row">
 		          	<div class=" mx-auto" style="width:80%;">
 		            	<h2 class="section-heading">Daftar Pembelian Lalu</h2>
@@ -169,77 +123,105 @@
 			        </div>
 			    </div>
 			</div>
-	    </div>
-	    <div class="tab-pane fade in" id="tab2">
-	      <h3>This is tab 2</h3>
-	    </div>
-	    <div class="tab-pane fade in" id="tab3">
-	      <h3>This is tab 33333</h3>
-	    </div>
-	  </div>
-	</div>
-
-</div>
-<script type="text/javascript">
-$(document).ready(function() {
-$(".btn-pref .btn").click(function () {
-    $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
-    // $(".tab").addClass("active"); // instead of this do the below 
-    $(this).removeClass("btn-default").addClass("btn-primary");   
-});
-});
-</script>     
-
-<!-- CONTENT -->
-	<div class="container-fluid" style="min-height:100%; padding-top: 5%;">
-	    <div class="row">
-          	<div class=" mx-auto" style="width:80%;">
-            	<h2 class="section-heading">Daftar Pembelian Lalu</h2>
-            	<div class="light my-8 mb-4" >
-				 	<table class="table table-striped table-bordered table-list">
-				    <thead>
-				        <tr>
-				            <th>ID</th>
-				            <th onclick="">Tanggal Pembelian</th>
-				            <th>Kendaraan</th>
-				            <th>Harga</th>
-				            <th></th>
-				        </tr>
-				    </thead>
-				    <tbody>
-				            <tr>
-				                <td>1</td>
-				                <td>10 Nov 2018</td>
-				                <td> <i class="fa fa-plane" style="font-size:24px; color:black;"></i> Lion Air QZ-234</td>
-				                <td>456000</td>
-				                <td class="text-center"><a href="#" class="btn btn-success btn-xs">Details</a></td>
-				            </tr>
-				            <tr>
-				                <td>2</td>
-				                <td>5 Aug 2018</td>
-				                <td> <i class="fa fa-cab" style="font-size:24px; color:black;"></i> Taksi Blue Bird</td>
-				                <td>84000</td>
-				                <td class="text-center"><a href="#" class="btn btn-success btn-xs">Details</a></td>
-				            </tr>
-				            <tr>
-				                <td>3</td>
-				                <td>18 Jan 2018</td>
-				                <td> <i class="fa fa-bus" style="font-size:24px; color:black;"></i> Bus Tayo</td>
-				                <td>140000</td>
-				                <td class="text-center"><a href="#" class="btn btn-success btn-xs">Details</a></td>
-				            </tr>
-				    </tbody>
-				    </table>
-				</div>
-	        </div>
-	    </div>
-	</div>
-
+                </div>
+                  <div class="tab-pane" id="promo">
+                    <div class="container-fluid" style="min-height:100%; padding-top: 5%;">
+			    <div class="row">
+		          	<div class="col-6 mx-auto">
+		            	<h2 class="section-heading">Daftar Promo</h2>
+		            	<div class="card">
+						  <img class="card-img-top" src="..." alt="Card image cap">
+						  <div class="card-body">
+						    <h5 class="card-title">Promo Akhir Tahun</h5>
+						    <p class="card-text">Dapatkan diskon 20% untuk pembelian tiket pesawat.</p>
+						    <a href="#" class="btn btn-primary">Gunakan Promo</a>
+						  </div>
+						</div>
+			        </div>
+			        <div class="col-6 mx-auto">
+		            	<h2 class="section-heading">Daftar Promo</h2>
+		            	<div class="card">
+						  <img class="card-img-top" src="..." alt="Card image cap">
+						  <div class="card-body">
+						    <h5 class="card-title">Promo Akhir Tahun</h5>
+						    <p class="card-text">Dapatkan diskon 50% untuk pembelian tiket Taksi.</p>
+						    <a href="#" class="btn btn-primary">Gunakan Promo</a>
+						  </div>
+						</div>
+			        </div>
+			    </div>
+			</div>
+                </div>
+                <div class="tab-pane" id="edit"  style="margin-left: 4em">
+                	<h2 class="section-heading mt-5">Edit Profile</h2>
+                    <form role="form" style="width: 80%;">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" placeholder="Jane">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" placeholder="Bishop">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="email" placeholder="email@gmail.com">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text"placeholder="Street">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-5">
+                                <input class="form-control" type="text" placeholder="City">
+                            </div>
+                            <div class="col-lg-4">
+                                <input class="form-control" type="text" placeholder="State">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" placeholder="janeuser">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <input type="reset" class="btn btn-secondary" value="Cancel">
+                                <input type="button" class="btn btn-primary" value="Save Changes">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+     </div>
+ </div>
 {% endblock %}
 
 {% block footer %}
-<!-- FOOTER -->
-{% load staticfiles %}
 <div id="footer" class="page-footer font-small blue pt-4" style="background-color: #599ff9;">
 	<div class="container-fluid text-center text-md-left">
 	    <div class="container">
@@ -253,7 +235,7 @@ $(".btn-pref .btn").click(function () {
 	            <h5 class="text-uppercase">Hubungi Kami</h5>
 	            <ul class="list-unstyled">
 	              <li>
-	                <a>Email: enterprice@gmail.com</a>
+	                <a>Email: enterprise@gmail.com</a>
 	              </li>
 	              <li>
 	                <a>Telephone: 0541-6548129426</a>
@@ -267,6 +249,9 @@ $(".btn-pref .btn").click(function () {
 	      Enterprise team.
 	    </div>
   	</div>
+
 </div>
+</div>
+<!-- FOOTER END -->
 <!-- FOOTER END -->
 {% endblock %}
