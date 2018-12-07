@@ -56,6 +56,68 @@
 			justify-content: center;
 			width: 1366px !important;
 		}
+		/* The switch - the box around the slider */
+		.switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 45px;
+		  height: 26px;
+		}
+
+		/* Hide default HTML checkbox */
+		.switch input {
+		  opacity: 0;
+		  width: 0;
+		  height: 0;
+		}
+
+		/* The slider */
+		.slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #ccc;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		}
+
+		.slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 18px;
+		  width: 18px;
+		  left: 4px;
+		  bottom: 4px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		}
+
+		input:checked + .slider {
+		  background-color: #2196F3;
+		}
+
+		input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		}
+
+		input:checked + .slider:before {
+		  -webkit-transform: translateX(18px);
+		  -ms-transform: translateX(18px);
+		  transform: translateX(18px);
+		}
+
+		/* Rounded sliders */
+		.slider.round {
+		  border-radius: 26px;
+		}
+
+		.slider.round:before {
+		  border-radius: 50%;
+		}
 	</style>
 
 	<div id="carouselExampleIndicators" class="carousel slide shadow-lg mt-3" data-ride="carousel" style="width: 100%; height: 600px;">
@@ -123,10 +185,9 @@
 	</div>
 	<div class="card container-fluid shadow-lg rounded" style="width: 100%;">
 		<!-- <div class="container"> -->
-			<form class="mt-3 mb-3" action="#" method="GET">
+			<form class="mx-4 mt-4 mb-3" action="#" method="GET">
 				<div class="form-row">
-					
-					<div class="form-group col-2">
+					<div class="form-group col-6">
 				      <h5 for="inputFrom"><i class="material-icons" style="font-size:20px">place</i>Dari</h5>
 				      <select id="inputFrom" class="form-control">
 				      	{% for city in all_cities %}
@@ -134,7 +195,10 @@
 				        {% endfor %}
 				      </select>
 				    </div>
-				    <div class="form-group col-2">
+				    <div class="col-1 bolak-balik mt-auto mb-auto" align="center">
+				    	<a class="fas fa-exchange-alt" href="#"></a>
+				    </div>
+				    <div class="form-group col-5">
 				      <h5 for="inputTo"><i class="material-icons" style="font-size:20px">place</i>Ke</h5>
 				      <select id="inputTo" class="form-control">
 				        {% for city in all_cities %}
@@ -142,23 +206,60 @@
 				        {% endfor %}
 				      </select>
 				    </div>
-				    <div class="form-group col-2">
-				    	<h5><i class="material-icons" style="font-size:20px">access_time</i>Waktu</h5>
-				    	<input id="datepicker" placeholder="mm/dd/yyyy"/>
+				    <div class="form-group col-3 mt-3">
+				    	<div class="form-row">
+					    	<i class="material-icons" style="font-size:20px">access_time</i>
+					    	<h5>Pergi</h5>
+					    	<input id="datepicker" placeholder="mm/dd/yyyy" style="width: 80%;" />
+						    <script>
+						        $('#datepicker').datepicker({
+						            uiLibrary   : 'bootstrap4',
+						            "setDate"   : new Date(),
+	        						"autoclose" : true
+						        });
+						    </script>
+					    </div>
+				    </div>
+				    <div class="form-group col-3 mt-3">
+				    	<div class="row">
+				    		<div class="col-5">
+				    			
+				    			<h5><i class="material-icons" style="font-size:20px">access_time</i>Pulang</h5>
+				    		</div>
+				    		<div class="col-6">
+				    			<label class="switch">
+								  <input type="checkbox">
+								  <span class="slider round"></span>
+								</label>
+				    		</div>
+						</div>
+				    	<input id="datepicker2" placeholder="mm/dd/yyyy" />
 					    <script>
-					        $('#datepicker').datepicker({
+					        $('#datepicker2').datepicker({
 					            uiLibrary   : 'bootstrap4',
 					            "setDate"   : new Date(),
         						"autoclose" : true
 					        });
 					    </script>
 				    </div>
-				    <div class="form-group col-2">
+				    <div class="col-1"></div>
+				    <div class="form-group col-2 mt-3">
 						<h5><i class="material-icons"style="font-size:20px">accessibility</i>Penumpang</h5>
 						<input class="form-control" type="number" value="1" id="example-number-input">
 					</div>
-					<div class="form-group col-4 mt-4" align="center">
-			    		<a href="/schedule_list/3" class="btn btn-primary" style="width: 100%;height: 90%; margin-top: 6px;">Cari</a>
+					<div class="form-group col-3 mt-3">
+						<h5>
+							<img src="https://img.icons8.com/ios/50/000000/flight-seat-filled.png" style="width: 7%; height: 7%">
+							Kelas Kabin
+						</h5>
+						<select id="inputTo" class="form-control">
+				        	<option selected>Ekonomi</option>
+				        	<option>Bisnis</option>
+				        	<option>First</option>
+				        </select>
+					</div>
+					<div class="form-group col-12" align="right">
+			    		<a href="/schedule_list/3" class="btn btn-primary" style="width:24%;height: 100%; margin-top: 6px;">Cari</a>
 			    	</div>
 			    </div>
 			</form>
