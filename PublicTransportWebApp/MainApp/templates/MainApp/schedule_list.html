@@ -254,7 +254,6 @@
 				    <div class="card" id="{{schedule.id}}" style="min-height:75px;">
 				        <div class="row">
 				        	<div class="col-11 mt-3 mb-3">
-				        		{% if category != "Bus" %}
 					        	<a style="width: 100%; text-decoration: none;color: black;" href="/schedule_detail/{{schedule.id}}">
 							        <div id="collapseHead{{schedule.id}}" class="row mx-auto">
 							        	<div class="col-1 mt-auto mb-auto">
@@ -274,25 +273,6 @@
 								        </div>
 							      	</div>
 						      	</a>
-						      	{% else %}
-							        <div id="collapseHead{{schedule.id}}" class="row mx-auto">
-							        	<div class="col-1 mt-auto mb-auto">
-							        		<img class="logo-icon" src="{{schedule.transportation_id.logo}}">
-							        	</div>
-								        <div id="kolom2-{{schedule.id}}" class="col-3">
-								            <div align="left" style="font-size: 18px">{{schedule.transportation_id.name}}</div>
-								            <h6 id="fromto{{schedule.id}}" align="left" style="font-size: 16px">({{schedule.place_from_id.city.code_name}}) &#8594;  ({{schedule.place_destination_id.city.code_name}})</h6>
-								        </div>
-								        <div id="kolom3-{{schedule.id}}"class="col-4">
-								           <div align="left" style="font-weight: bold;">{{schedule.date_time.day}}-{{schedule.date_time.month}}-{{schedule.date_time.year}} 
-							    			{{schedule.date_time.hour}}:{{schedule.date_time.minute}} </div>
-								           <div align="left">Langsung</div>
-								        </div>
-								        <div id="harga{{schedule.id}}" class="col-4 mt-3" align="right">
-								           <h6 style="color: orange; font-size: 20px;">{{schedule.cost_currency_format}}</h6>
-								        </div>
-							      	</div>
-						      	{% endif %}
 					        </div>
 					    <div class="col-1 mt-4">
 					    	<a class="btn btn-link collapsed" style="margin-top: 5px;width: 100%;height: 100%;text-decoration: none; color: black;" data-toggle="collapse" data-target="#clps{{schedule.id}}" aria-expanded="true" aria-controls="{{schedule.id}}" id="clp{{schedule.id}}"></a>
@@ -407,16 +387,76 @@
 							        	<div>&#8595;</div>
 							        	<div>({{schedule.place_destination_id.city.name}}) {{schedule.place_destination_id.nickname}}</div>
 							        </div> -->
+							        {% if category == 'Pesawat' %}
 							        <div class="col-4 mt-md-0 mt-3">
 							          	<div style="color:#808080;"> Detail Barang </div>
 									    <div>🕘 <strong>22.15 - 01.16</strong></div>
 									    <div>🛄 <strong>20 Kg</strong></div>
 							        </div>
-
+							        {% endif %}
 						    	</div>
 
 					      </div>
-					     
+					      <hr>
+					     	<!-- <div class="col-2 mt-4">					       		
+					     		<img class="logo-icon" src="{{schedule.transportation_id.logo}}">
+					       	</div>
+					       	<div class="col-10 mt-4">
+					       		<div class="row">
+							        <div class="col-1">
+								        <ul>
+								          	<li>
+								          		<div class="place-circle mb-1 mt-2"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="vl mb-1"></div>
+								          	</li>
+								          	<li>
+								          		<div class="place-circle"></div>
+								          	</li>
+								        </ul>
+							        </div>
+							        <div class="col-7 mt-md-0 mt-3">
+						          		<div style="font-size: 14px; font-weight: bold; margin-left: 6px;">
+						          			 02.00 - ({{schedule.place_from_id.city.code_name}}) {{schedule.place_from_id.nickname}}
+						          			 <div><label class="text-primary">21 Jan</label> Terminal 2F</div>
+						          		</div>
+						          		<div style="font-size: 14px; margin-top: 17px; margin-bottom: 17px;margin-left: 6px;">
+						          			1j 50mnt
+						          		</div>
+						          		<div style="font-size: 14px; font-weight: bold;margin-left: 6px;">
+						          			 03.50 - ({{schedule.place_destination_id.city.code_name}}) {{schedule.place_destination_id.nickname}}
+						          			 <div><label class="text-primary">21 Jan</label> Terminal I</div>
+						          		</div>
+							        </div>
+							        {% if category == 'Pesawat' %}
+							        <div class="col-4 mt-md-0 mt-3">
+							          	<div style="color:#808080;"> Detail Barang </div>
+									    <div>🕘 <strong>22.15 - 01.16</strong></div>
+									    <div>🛄 <strong>20 Kg</strong></div>
+							        </div>
+							        {% endif %}
+						    	</div>
+						    	
+					      </div> -->
 					    </div>
 					    
 					  </div>

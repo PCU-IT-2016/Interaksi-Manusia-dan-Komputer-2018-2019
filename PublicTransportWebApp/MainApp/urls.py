@@ -14,5 +14,8 @@ urlpatterns = [
     url(r"^map/", views.map, name="new_home"),
     url(r"^register/", views.register_form, name="register_form"),
     url(r"profile/", views.profile, name="profile"),
-    url(r"logged/", views.home_logged, name="logged")
+    url(r"logged/", views.home_logged, name="logged"),
+    url(r"^homep", views.home, name="index"),
+    url(r"^homet", views.homet, name="index"),
+    url(r"^homeb", views.homeb, name="index")
 ]

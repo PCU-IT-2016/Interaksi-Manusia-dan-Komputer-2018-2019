@@ -14,6 +14,25 @@ def home(request):
     }
     return render(request, "MainApp/home.html",categories_dictionary)
 
+def homeb(request):
+    all_categories          = Category.objects.all()
+    all_cities              = City.objects.all()
+    categories_dictionary   = {
+        'all_categories' : all_categories,
+        'all_cities'     : all_cities
+    }
+    return render(request, "MainApp/home_b.html",categories_dictionary)
+
+def homet(request):
+    all_categories          = Category.objects.all()
+    all_cities              = City.objects.all()
+    categories_dictionary   = {
+        'all_categories' : all_categories,
+        'all_cities'     : all_cities
+    }
+    return render(request, "MainApp/home_t.html",categories_dictionary)
+
+
 def home_logged(request):
     all_categories          = Category.objects.all()
     all_cities              = City.objects.all()
