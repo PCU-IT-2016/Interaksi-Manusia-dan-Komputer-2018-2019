@@ -9,7 +9,7 @@ SECRET_KEY = config.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.100.6', '36.84.39.100', '127.0.0.1', 'localhost', '192.168.0.5']
+ALLOWED_HOSTS = ['192.168.100.6', '36.81.169.87', '127.0.0.1', 'localhost', '192.168.0.2']
 
 
 # Application definition

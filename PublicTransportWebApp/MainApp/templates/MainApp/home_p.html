@@ -183,21 +183,19 @@
 		<div class="col-4 d-flex align-items-stretch" align="center">
 			<div class="custom-card d-flex align-items-stretch" style="width: 32rem;" align="left">
 				<!-- /schedule_list/{{category.id}} -->
-						{% if category.name == "Bus" %}
-						<a href="homeb" id="cate{{category.id}}" class="card card-link bg-light mb-3 ">
-							<img class="card-img-top" src="{% static 'MainApp/img/bus0.jpg' %}" alt="Card image cap">
-						{% elif category.name == "Pesawat" %}
-						<a href="homep" id="cate{{category.id}}" class="card card-link bg-light mb-3 ">
-							<img class="card-img-top" src="{% static 'MainApp/img/pesawat0.jpg' %}" alt="Card image cap">
-						{% elif category.name == "Kereta" %}
-						<a href="homet" id="cate{{category.id}}" class="card card-link bg-light mb-3 ">
-							<img class="card-img-top" src="{% static 'MainApp/img/kereta_ilustrasi.jpg' %}" alt="Card image cap">
+				<a href="/schedule_list/{{category.id}}" id="cate{{category.id}}" class="card card-link bg-light mb-3 ">
+				    {% if category.name == "Bus" %}
+				    <img class="card-img-top" src="{% static 'MainApp/img/bus0.jpg' %}" alt="Card image cap">
+				    {% elif category.name == "Pesawat" %}
+				    <img class="card-img-top" src="{% static 'MainApp/img/pesawat0.jpg' %}" alt="Card image cap">
+				    {% elif category.name == "Kereta" %}
+				    <img class="card-img-top" src="{% static 'MainApp/img/kereta_ilustrasi.jpg' %}" alt="Card image cap">
 				    {% endif %}
 				    <div class="card-body" style=" color: black;">
 					    <h5 class="card-title">{{category.name}}</h5>
 					    <p class="card-text">{{category.descriptions}}</p>
-						</div>
-						</a>
+				    </div>
+				</a>
 			</div>
 		</div>
 		{% endfor %}

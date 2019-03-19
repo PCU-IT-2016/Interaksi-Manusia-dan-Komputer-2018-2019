@@ -1,12 +1,130 @@
-{% extends "MainApp/header.html" %}
 
-{% block head %}
-<style type="text/css">
-	body{
-		height: 100%;
-	}
-</style>
-<div class="header">
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<title>IMK</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.2/css/all.css' integrity='sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns' crossorigin='anonymous'>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<style type="text/css">
+		html,
+		body {
+		  	font: arial;
+		  	text-decoration: none;
+		    margin:0;
+		    padding:0;
+		    height:100%;
+		}
+		a{
+			color: black;
+		}
+		
+		/***** HOME CONTENT *****/
+		.header
+		{
+			text-decoration-style: none;
+		}
+		span{
+		    font-size:15px;
+		}
+		.box{
+		    padding:60px 0px;
+		    background-color: #2a2b2d;
+		}
+		.box-part{
+		    background:#FFF;
+		    border-radius:0;
+		    padding:60px 10px;
+		    margin:30px 0px;
+		}
+		.text{
+		    margin:20px 0px;
+		}
+
+		.fa{
+		     color:#ffffff;
+		}
+		.card-img-top {
+		    width: 100%;
+		    height: 10vw;
+		    object-fit: cover;
+		}
+		.c_image_size{
+			width: 100%;
+			height: 600px;
+		}
+		.navbar-brand
+		{
+			margin: auto;
+	   		width: 85%;
+		}
+
+		.news {
+		  position: relative;
+		  width: 100%;
+		  height: width: 100%;
+		}
+
+		.image {
+		  width: 100%;
+		  height: 50%;
+		}
+
+		.overlay {
+		  position: absolute;
+		  bottom: 0;
+		  height: 50%;
+		  width: 100%;
+		  opacity: 0;
+		  transition: .5s ease;
+		  background-color:  #599ff9;
+		}
+
+		.news:hover .overlay {
+		  opacity: 1;
+		}
+
+		.desc{
+			color: white;
+			background-color: #599ff9;
+		}
+
+		.newsdesc {
+		  color: white;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  -webkit-transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		  transform: translate(-50%, -50%);
+		  text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="header">
 		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #599ff9;">
 		    <div class="container">
 			    <a class="navbar-brand text-white" href="/" style="font-size: 32px;font-family: Copperplate Gothic;font-weight: bold;">Enterprise</a>
@@ -21,32 +139,6 @@
 				        <li class="nav-item">
 				        	<a class="nav-link" href="/map/">Map</a>
 				        </li>
-				      
-				        <li class="nav-item dropdown">
-				        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					          	<i class="fa fa-shopping-cart" style="font-size:20px"></i>
-					        </a>
-					        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"  style="width:350px">
-					                <div class="container-fluid" >
-					              		<table class="table table-striped table-bordered table-list">
-									    <tbody>
-									            <tr>
-									            	<td>10 Nov 2018</td>
-									                <td>Lion Air QZ-234</td>
-									                <td class="text-center"><a href="#" class="btn btn-danger btn-xs">X</a></td>
-									                <td class="text-center"><a href="#" class="btn btn-success btn-xs">&#x1f5c9;</a></td>
-									            </tr>
-									            <tr>
-									            	<td>16 Nov 2018</td>
-									                <td>Lion Air QZ-355</td>
-									                <td class="text-center"><a href="detail" class="btn btn-danger btn-xs">X</a></td>
-									                <td class="text-center"><a href="detail" class="btn btn-success btn-xs">&#x1f5c9;</a></td>
-									            </tr>
-									    </tbody>
-									    </table>
-					                </div>
-					        </div>
-				        </li>
 				        <!-- PROFIL -->
 			        </ul>
 			    </div>
@@ -54,18 +146,11 @@
 		</nav>
 	</div>
 
-{% endblock %}
-
-{% block content %}
-	<style type="text/css">
-		.cont2 {
-			height: 100%;
-			min-height: 766px;
-		}
-	</style>
-	<div class="cont2">
+<hr>
+	<!-- CONTENT -->
+<div class="container">
     <div class="row m-y-2">
-        <div class="col-12 push-lg-4">
+        <div class="col-lg-8 push-lg-4">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a href="" data-target="#history" data-toggle="tab" class="nav-link">History</a>
@@ -127,83 +212,86 @@
                   <div class="tab-pane" id="promo">
                     <div class="container-fluid" style="min-height:100%; padding-top: 5%;">
 			    <div class="row">
-		          	<div class="col-6 mx-auto">
+		          	<div class=" mx-auto" style="width:80%;">
 		            	<h2 class="section-heading">Daftar Promo</h2>
-		            	<div class="card">
-						  <img class="card-img-top" src="..." alt="Card image cap">
-						  <div class="card-body">
-						    <h5 class="card-title">Promo Akhir Tahun</h5>
-						    <p class="card-text">Dapatkan diskon 20% untuk pembelian tiket pesawat.</p>
-						    <a href="#" class="btn btn-primary">Gunakan Promo</a>
-						  </div>
-						</div>
-			        </div>
-			        <div class="col-6 mx-auto">
-		            	<h2 class="section-heading">Daftar Promo</h2>
-		            	<div class="card">
-						  <img class="card-img-top" src="..." alt="Card image cap">
-						  <div class="card-body">
-						    <h5 class="card-title">Promo Akhir Tahun</h5>
-						    <p class="card-text">Dapatkan diskon 50% untuk pembelian tiket Taksi.</p>
-						    <a href="#" class="btn btn-primary">Gunakan Promo</a>
-						  </div>
+		            	<div class="light my-8 mb-4" >
+						 	<table class="table table-striped table-bordered table-list">
+						    <thead>
+						        <tr>
+						            <th>No</th>
+						            <th onclick="">Tanggal Expired</th>
+						            <th>Promo</th>
+						            <th>Syarat</th>
+						            <th></th>
+						        </tr>
+						    </thead>
+						    <tbody>
+						            <tr>
+						                <td>1</td>
+						                <td>10 Des 2019</td>
+						                <td>Diskon 50%</td>
+						                <td>Pembelian Tiket Pesawat > 500.000</td>
+						                <td class="text-center"><a href="#" class="btn btn-success btn-xs">Details</a></td>
+						            </tr>
+						    </tbody>
+						    </table>
 						</div>
 			        </div>
 			    </div>
 			</div>
                 </div>
-                <div class="tab-pane" id="edit"  style="margin-left: 4em">
-                	<h2 class="section-heading mt-5">Edit Profile</h2>
-                    <form role="form" style="width: 80%;">
+                <div class="tab-pane" id="edit">
+                	<h2 class="section-heading">Edit Profile</h2>
+                    <form role="form">
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" placeholder="Jane">
+                                <input class="form-control" type="text" value="Jane">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" placeholder="Bishop">
+                                <input class="form-control" type="text" value="Bishop">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Email</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="email" placeholder="email@gmail.com">
+                                <input class="form-control" type="email" value="email@gmail.com">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text"placeholder="Street">
+                                <input class="form-control" type="text" value="" placeholder="Street">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
-                            <div class="col-lg-5">
-                                <input class="form-control" type="text" placeholder="City">
+                            <div class="col-lg-6">
+                                <input class="form-control" type="text" value="" placeholder="City">
                             </div>
-                            <div class="col-lg-4">
-                                <input class="form-control" type="text" placeholder="State">
+                            <div class="col-lg-3">
+                                <input class="form-control" type="text" value="" placeholder="State">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Username</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" placeholder="janeuser">
+                                <input class="form-control" type="text" value="janeuser">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Password</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="password">
+                                <input class="form-control" type="password" value="11111122333">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="password">
+                                <input class="form-control" type="password" value="11111122333">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -217,41 +305,12 @@
                 </div>
             </div>
         </div>
-     </div>
- </div>
-{% endblock %}
-
-{% block footer %}
-<div id="footer" class="page-footer font-small blue pt-4" style="background-color: #599ff9;">
-	<div class="container-fluid text-center text-md-left">
-	    <div class="container">
-	        <div class="row" style="color: white;">
-	        <div class="col-6 mt-md-0 mt-3">
-	            <h5 class="text-uppercase">Tentang Kami</h5>
-	            <p>Menjawab Kebutuhan Transportasi anda, Banyak pilihan, Aman & Terpercaya. Kami juga menyediakan promo-promo yang dapat membuat harga perjalanan anda lebih hemat.</p>
-	        </div>
-
-	        <div class="col-6">
-	            <h5 class="text-uppercase">Hubungi Kami</h5>
-	            <ul class="list-unstyled">
-	              <li>
-	                <a>Email: enterprise@gmail.com</a>
-	              </li>
-	              <li>
-	                <a>Telephone: 0541-6548129426</a>
-	              </li>
-	            </ul>
-	        </div>
-	    
-	        </div>
-	    </div>
-	    <div class="footer-copyright text-center py-3"style="color: white;">© 2018 Copyright:
-	      Enterprise team.
-	    </div>
-  	</div>
-
+     
+    </div>
 </div>
-</div>
-<!-- FOOTER END -->
-<!-- FOOTER END -->
-{% endblock %}
+
+	{% block footer %}
+	{% endblock %}
+
+</body>
+</html>

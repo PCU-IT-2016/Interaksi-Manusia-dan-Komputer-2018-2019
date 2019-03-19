@@ -183,21 +183,21 @@
 		<div class="col-4 d-flex align-items-stretch" align="center">
 			<div class="custom-card d-flex align-items-stretch" style="width: 32rem;" align="left">
 				<!-- /schedule_list/{{category.id}} -->
-						{% if category.name == "Bus" %}
-						<a href="homeb" id="cate{{category.id}}" class="card card-link bg-light mb-3 ">
-							<img class="card-img-top" src="{% static 'MainApp/img/bus0.jpg' %}" alt="Card image cap">
-						{% elif category.name == "Pesawat" %}
-						<a href="homep" id="cate{{category.id}}" class="card card-link bg-light mb-3 ">
-							<img class="card-img-top" src="{% static 'MainApp/img/pesawat0.jpg' %}" alt="Card image cap">
-						{% elif category.name == "Kereta" %}
-						<a href="homet" id="cate{{category.id}}" class="card card-link bg-light mb-3 ">
-							<img class="card-img-top" src="{% static 'MainApp/img/kereta_ilustrasi.jpg' %}" alt="Card image cap">
-				    {% endif %}
-				    <div class="card-body" style=" color: black;">
-					    <h5 class="card-title">{{category.name}}</h5>
-					    <p class="card-text">{{category.descriptions}}</p>
-						</div>
-						</a>
+				{% if category.name == "Bus" %}
+				<a href="homeb" id="cate{{category.id}}" class="card card-link bg-light mb-3 ">
+					<img class="card-img-top" src="{% static 'MainApp/img/bus0.jpg' %}" alt="Card image cap">
+				{% elif category.name == "Pesawat" %}
+				<a href="homep" id="cate{{category.id}}" class="card card-link bg-light mb-3 ">
+					<img class="card-img-top" src="{% static 'MainApp/img/pesawat0.jpg' %}" alt="Card image cap">
+				{% elif category.name == "Kereta" %}
+				<a href="homet" id="cate{{category.id}}" class="card card-link bg-light mb-3 ">
+					<img class="card-img-top" src="{% static 'MainApp/img/kereta_ilustrasi.jpg' %}" alt="Card image cap">
+				{% endif %}
+					<div class="card-body" style=" color: black;">
+						<h5 class="card-title">{{category.name}}</h5>
+						<p class="card-text">{{category.descriptions}}</p>
+					</div>
+				</a>
 			</div>
 		</div>
 		{% endfor %}
@@ -266,20 +266,10 @@
 						<h5><i class="material-icons"style="font-size:20px">accessibility</i>Penumpang</h5>
 						<input class="form-control" type="number" value="1" id="example-number-input">
 					</div>
-					<div class="form-group col-3 mt-3">
-						<h5>
-							<img src="https://img.icons8.com/ios/50/000000/flight-seat-filled.png" style="width: 7%; height: 7%">
-							Kelas Kabin
-						</h5>
-						<select id="inputTo" class="form-control">
-				        	<option selected>Ekonomi</option>
-				        	<option>Bisnis</option>
-				        	<option>First</option>
-				        </select>
+					
+					<div class="form-group col-3">
+						<a href="/schedule_list/3" class="btn btn-primary mx-auto mt-5" style="width:100%;height: 45%;">Cari</a>
 					</div>
-					<div class="form-group col-12" align="right">
-			    		<a href="/schedule_list/3" class="btn btn-primary" style="width:24%;height: 100%; margin-top: 6px;">Cari</a>
-			    	</div>
 			    </div>
 			</form>
 	</div>
